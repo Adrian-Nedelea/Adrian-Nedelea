@@ -1,0 +1,50 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.drop {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .Drop-toggle{
+    background-color: #2FB7D7;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .Drop-content{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .Drop-content .Item{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  
+.Item:hover{
+  display: block;
+  background-color: #c4c4bd;
+}
+
+.drop:hover .Drop-content{
+  display: block;
+}
+
+.drop:hover .Drop-toggle{
+  background-color: #225fe2;
+}

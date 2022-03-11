@@ -1,0 +1,124 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+   .Form-Control, Button {
+    appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+
+.Formular{
+    height: 130vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #53565A;
+}
+
+.Form{
+    display: block;
+    position: relative;
+}
+
+Form::after{
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 5px;
+    top:-5px;
+    left:-5px;
+    right:-5px;
+    bottom: -5px;
+    z-index: 1;
+    background-color: #2FB7D7;
+}
+
+.Form .Form-inner{
+    position: relative;
+    display: block;
+    background-color: #FFF;
+    padding: 10px;
+    z-index: 2;
+}
+.Title{
+    color:#888;
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    padding:5px;
+}
+
+.Title::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5px;
+    width:145px;
+    background-image: linear-gradient(to right,#2FB7D7,#fff);
+    border-radius: 5px;
+}
+.Form .Form-inner .Form-Group{
+    display: block;
+    color:#666;
+    width: 300px;
+    margin-bottom: 12px;
+}
+
+.Form-inner .Form-Group .label{
+    display: block;
+    color:#666;
+    transition: 0.4s;
+}
+
+.Form-inner .Form-Group:focus-within .label{
+    color:#FE4880
+}
+
+ .Form .Form-inner .Form-Group .Form-Control{
+    display: block;
+    width: 100%;
+    padding: 9px 15px;
+    background-color: #F8F8F8;
+    border-radius: 8px;
+    transition: 0.4s;
+}
+
+.Form .Form-inner .Form-Group .Form-Control:focus{
+    box-shadow: 0px 0px 3px rgba(0 , 0 ,0 ,0.2);
+}
+
+.Form .Form-inner .button{
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-image: linear-gradient(to right,#1BE3EB,#1BE3EB,#2B32E8);
+    background-size: 200%;
+    background-position: 0%;
+    transition: 0.4s;
+    color:#FFF;
+    font-weight: 700;
+    cursor: pointer;
+}
+.Form .Form-inner .button:hover{
+    background-position: 100% 0%;
+}
+
+
+
+/* Login page*/
+
+.Login{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #53565A;
+}
+
