@@ -1,7 +1,6 @@
-import { FaBars } from 'react-icons/fa';
 import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
-
+import {FaBars} from 'react-icons/fa'
 export const Nav = styled.nav`
 background-image: linear-gradient(to right,#5DADE2 55%,#F2FBFB);
   height: 80px;
@@ -21,10 +20,9 @@ export const NavLink = styled(Link)`
   height: 100%;
   cursor: pointer;
   &.active {
-    color: #15cdfc;
+    color: black;
   }
 `;
-
 export const Bars = styled(FaBars)`
   display: none;
   color: #fff;
@@ -38,6 +36,8 @@ export const Bars = styled(FaBars)`
     cursor: pointer;
   }
 `;
+
+
 
 export const NavMenu = styled.div`
   display: flex;

@@ -1,18 +1,15 @@
-import React,{Component} from 'react'
-import { NavigationType, useNavigate } from 'react-router'
+import React from 'react'
 import Button from 'react-bootstrap/esm/Button';
-export default function registersuccess(){
-    let navigate=useNavigate();
+import {ThumbsUp} from 'react-feather'
 
-    const HandleOk= async e =>{
-        e.preventDefault();
-        navigate({pathname:"/",state:location.state});
-    }
+
+export default function RegisterSuccess(){
+   
     return (
         <div className='registerstatus'>
-            <p>account was created</p>
-            <Button  onClick={HandleOk}> OK </Button>
-            </div>
+            <p className='Text'> Account was created <ThumbsUp size={25}/> </p>
+            <Button className='ButtonReg' href='/LoginForm' > You can Log In now</Button>
+         </div>
     )
 }
       

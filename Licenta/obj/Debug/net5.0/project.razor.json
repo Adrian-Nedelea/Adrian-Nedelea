@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\Nedi\\Desktop\\Proiect\\Licenta\\Licenta.csproj",
+  "FilePath": "c:\\Users\\Nedi\\Desktop\\Proiect\\Diploma-Project\\Licenta\\Licenta.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15619,13 +15619,13 @@
   "RootNamespace": "Licenta",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\Nedi\\Desktop\\Proiect\\Licenta\\Pages\\_ViewImports.cshtml",
-      "TargetPath": "Pages\\_ViewImports.cshtml",
+      "FilePath": "c:\\Users\\Nedi\\Desktop\\Proiect\\Diploma-Project\\Licenta\\Pages\\Error.cshtml",
+      "TargetPath": "Pages\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Nedi\\Desktop\\Proiect\\Licenta\\Pages\\Error.cshtml",
-      "TargetPath": "Pages\\Error.cshtml",
+      "FilePath": "c:\\Users\\Nedi\\Desktop\\Proiect\\Diploma-Project\\Licenta\\Pages\\_ViewImports.cshtml",
+      "TargetPath": "Pages\\_ViewImports.cshtml",
       "FileKind": "mvc"
     }
   ],

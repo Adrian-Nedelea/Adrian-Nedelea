@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Times New Roman', Times, serif;
+   
 }
 
    .Form-Control, Button {
@@ -18,12 +19,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #53565A;
+    
 }
-
 .Form{
     display: block;
     position: relative;
+    
 }
 
 Form::after{
@@ -98,7 +99,7 @@ Form::after{
     display: inline-block;
     padding: 10px 15px;
     border-radius: 8px;
-    background-image: linear-gradient(to right,#1BE3EB,#1BE3EB,#2B32E8);
+    background-image: linear-gradient(to right,#2FB7D7,#2FB7D7,#2B32E8);
     background-size: 200%;
     background-position: 0%;
     transition: 0.4s;
@@ -110,15 +111,56 @@ Form::after{
     background-position: 100% 0%;
 }
 
-
-
-/* Login page*/
+.Form .Form-inner .buttonR{
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-image: linear-gradient(to right,#2FB7D7,#2FB7D7,#2B32E8);
+    background-size: 200%;
+    background-position: 0%;
+    margin-left: 97px;
+    transition: 0.4s;
+    color:#FFF;
+    font-weight: 700;
+    cursor: pointer;
+}
+.Form .Form-inner .buttonR:hover{
+    background-position: 100% 0%;
+}
 
 .Login{
-    height: 100vh;
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #53565A;
+    background-color: whitesmoke;
 }
 
+.registerstatus{
+    display: block;
+    margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+.ButtonReg{
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: #2FB7D7;
+    margin-left: 97px;
+    transition: 0.4s;
+    color:#FFF;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.Text{
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-left: 97px;
+    font-weight: 700;
+    cursor: pointer;
+}

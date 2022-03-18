@@ -1,15 +1,17 @@
 import React,{Component} from 'react'
 import Button from 'react-bootstrap/Button'
+import {Frown} from 'react-feather'
 
- export class RegisterFailed extends Component() {
-     render( ){
+
+ export default function RegisterFailed () {
+ 
   return (
-    <div className='registerStatus'>
-      <p>Failed the account was not created</p>
-      <Button href="/register">Try again</Button>
+    <div className='registerstatus'>
+      <p className='Text'><Frown size={25} />Failed the account was not created</p>
+      <Button className='ButtonReg' href="/SignForm">Try again</Button>
     </div>
   )
 }
- }
+ 
 
 

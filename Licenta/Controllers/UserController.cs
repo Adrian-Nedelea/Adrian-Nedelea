@@ -46,6 +46,16 @@ namespace Licenta.Controllers
             }
         }
 
+        [HttpPost("login")]
+        public async Task<IActionResult> Post(UserLogin user_login)
+        {
+            string _getpass= await _userRepos.GetUserPass(user_login.Username);
+            if(_getpass == null)
+                return BadRequest(new{message ="Login failed!"});
+                else
+                return Ok(new {message ="Login Success"});
+        }
+
 
     }
 }

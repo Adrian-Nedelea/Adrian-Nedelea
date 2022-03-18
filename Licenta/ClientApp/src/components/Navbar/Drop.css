@@ -11,7 +11,7 @@
   }
   
   .Drop-toggle{
-    background-color: #2FB7D7;
+    background-color: #0f94bd;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -48,3 +48,44 @@
 .drop:hover .Drop-toggle{
   background-color: #225fe2;
 }
+
+.nav-btn{
+  padding: 5px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #0f94bd;
+  visibility: hidden;
+  opacity: 0;
+}
+
+@media only screen and  ( max-width: 1024px){
+  .nav-btn {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  Nav {
+    position: fixed;
+    top:0;
+    left: 0;
+    height:100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:1.5rem;
+    background-color: #0f94bd;
+    transition: 1s;
+    transform: translateY(+100vh);
+   
+  }
+
+  .responsive_nav{
+    transform: none;
+  }
+  
+}
+  
+

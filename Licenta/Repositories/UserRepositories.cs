@@ -44,5 +44,26 @@ namespace Repositories
             await _userTable.CreateIfNotExistsAsync();
 
         }
+
+        public async Task<string> GetUserPass(string Username)
+        {
+            TableQuery<UserEntity> query = new TableQuery<UserEntity>();
+
+            TableContinuationToken token=null;
+            do{
+                TableQuerySegment<UserEntity> resultSegment= await _userTable.ExecuteQuerySegmentedAsync(query,token);
+                token=resultSegment.ContinuationToken;
+
+                foreach(UserEntity entity in resultSegment.Results)
+                {
+                    if(entity.RowKey==Username)
+                    return entity.Password;
+                }
+            }
+            while (token!=null);
+            return null;
+        }
+
+        
     }
 }

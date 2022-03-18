@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import {LogIn} from 'react-feather'
@@ -8,7 +8,7 @@ import './Form.css'
 
 async function registerUser (credentials)
 {
-   return fetch('Https://localhost:5001/api/user/register', {
+   return fetch('Http://localhost:5000/api/user/register', {
      method:'POST',
      headers:{'Content-Type':'application/json'},
      body:JSON.stringify(credentials)
@@ -44,10 +44,10 @@ export default function SignForm() {
     });
     console.log(response);
     if(!response.ok){
-      navigate("/registerfailed");
+     navigate('/RegisterFailed');
     }
     else{
-      navigate({pathname:"/registersuccess",state:Username})
+      navigate('/RegisterSuccess');
     }
   }
  
