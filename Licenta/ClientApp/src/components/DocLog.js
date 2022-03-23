@@ -3,9 +3,12 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { LogIn } from 'react-feather'
 import './Form.css'
+import Navbar from './Navbar/Index'
+
 export default function DocLog() {
   return (
     <>
+    <Navbar/>
     <div className='Login'>
       <Form className="Form">
         <div className='Form-inner'>

@@ -53,7 +53,12 @@ namespace Licenta.Controllers
             if(_getpass == null)
                 return BadRequest(new{message ="Login failed!"});
                 else
-                return Ok(new {message ="Login Success"});
+                {
+                    if(_getpass != user_login.Password)
+                    return BadRequest( new {message ="Login Failed!"});
+                    else 
+                    return Ok(new {message="Login Success"});
+                }
         }
 
 

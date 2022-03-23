@@ -3,6 +3,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import {LogIn} from 'react-feather'
+import Navbar from './Navbar/Index'
 
 import './Form.css'
 
@@ -53,6 +54,7 @@ export default function SignForm() {
  
   return (
     <>
+      <Navbar/>
     <div className='Formular'>
       <Form onSubmit={handleSubmit} className='Form'>
         <div className='Form-inner'>

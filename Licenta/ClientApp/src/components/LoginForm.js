@@ -4,10 +4,11 @@ import Form from 'react-bootstrap/Form'
 import { LogIn, UserPlus } from 'react-feather'
 import { useState } from 'react'
 import {  useNavigate } from 'react-router'
+import Navbar from './Navbar/Index'
 
 async function LoginUser(credentials)
 {
-  return fetch('http:localhost:5000/apu/user/login' ,{
+  return fetch('Http://localhost:5000/api/user/login' ,{
     method:'POST',
     headers :{'Content-Type':'application/json'},
     body:JSON.stringify(credentials)
@@ -30,10 +31,8 @@ export default function LoginForm() {
       e.preventDefault();
   
       const response =await LoginUser({
-       
         Username,
-        Password,
-       
+        Password
       });
       console.log(response);
       if(!response.ok){
@@ -46,8 +45,9 @@ export default function LoginForm() {
 
   return (
     <>
+    <Navbar/>
     <div className='Login'>
-      <Form className="Form">
+      <Form onSubmit={handleSubmit} className="Form">
         <div className='Form-inner'>
         <div className='Title'>Login</div>
             <Form.Group className="Form-Group" controlId="Username">
@@ -61,7 +61,7 @@ export default function LoginForm() {
               <Form.Label className='label'>Password</Form.Label>
               <Form.Control className='Form-Control'  type="password" placeholder="Password"
               value={Password}
-              onchange={(e)=>setPassword(e.target.value)} />
+              onChange={(e)=>setPassword(e.target.value)} />
             </Form.Group>
 
             <Button className='button' type="submit">
@@ -69,7 +69,7 @@ export default function LoginForm() {
               Log in
             </Button>
 
-            <Button className='buttonR'  type="submit" href="/SignForm">
+            <Button className='buttonR'   href="/SignForm">
             <UserPlus size={20}/>
               Register 
             </Button>

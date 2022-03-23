@@ -10,6 +10,8 @@ import Navbar from './components/Navbar/Index'
 import DocLog from './components/DocLog';
 import RegisterSuccess from './components/RegisterSuccess';
 import RegisterFailed from './components/RegisterFailed';
+import LoginFailed from './components/LoginFailed';
+import UserLoggedIn from './components/UserLoggedIn';
 
 
 
@@ -17,7 +19,6 @@ export default function App () {
   
     return (
     <>
-     <Navbar />
      <Routes>
           <Route path="/" exact element={<Home/>} />
           <Route path="/Services" exact element={<Services/>} />
@@ -27,6 +28,8 @@ export default function App () {
           <Route path="/DocLog" exact element={<DocLog/>}/>
           <Route path="/RegisterSuccess" exact element={<RegisterSuccess/>}/>
           <Route path="/RegisterFailed" exact element={<RegisterFailed/>}/>  
+          <Route path="/LoginFailed" exact element={<LoginFailed/>} />
+          <Route path='/LoginSuccess' exact element={<UserLoggedIn/>} />
       </Routes>
     </>
 

@@ -99,7 +99,7 @@ Form::after{
     display: inline-block;
     padding: 10px 15px;
     border-radius: 8px;
-    background-image: linear-gradient(to right,#2FB7D7,#2FB7D7,#2B32E8);
+    background-image: linear-gradient(to right,#2FB7D7,#2FB7D7,#2471A3 );
     background-size: 200%;
     background-position: 0%;
     transition: 0.4s;
@@ -115,7 +115,7 @@ Form::after{
     display: inline-block;
     padding: 10px 15px;
     border-radius: 8px;
-    background-image: linear-gradient(to right,#2FB7D7,#2FB7D7,#2B32E8);
+    background-image: linear-gradient(to right,#2FB7D7,#2FB7D7,#2471A3);
     background-size: 200%;
     background-position: 0%;
     margin-left: 97px;

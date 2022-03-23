@@ -18,22 +18,22 @@ const Navbar = () => {
   return (
     <>
       <Nav ref={navRef}>
-          <NavLink to="/" activeStyle>
-          <Home size={20}/>
-          Home
           <img width="70px"  height="auto" src={require('./logo/logo.png')}   alt="logo" />
-               </NavLink>
-             
+              
                <NavMenu>
-                   <NavLink to="/Services" activeStyle>
+               <NavLink to="/" >
+             <Home size={20}/>
+              Home
+               </NavLink>
+                   <NavLink to="/Services" >
                    <Info size={20}/>
                    Services
                    </NavLink>
-                   <NavLink to="/Contact" activeStyle>
+                   <NavLink to="/Contact" >
                    <Phone size={20}/>
                    Contact
                    </NavLink>
-                   <NavLink to="/SignForm" activeStyle>
+                   <NavLink to="/SignForm" >
                    <UserPlus size={20}/>
                    Sign Up
                    </NavLink>
@@ -58,6 +58,7 @@ const Navbar = () => {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu className='Drop-content'>
+                      <Link to="/" className='Item'>Home</Link>
                       <Link to="/SignForm" className='Item'>Sign Up</Link>
                       <Link to="/Contact" className='Item'>Contact</Link>
                       <Link to="/Services" className='Item'>Services</Link>
