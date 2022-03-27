@@ -6,7 +6,7 @@ import Services from './components/Services';
 import Contact from './components/Contact';
 import SignForm from './components/SignForm';
 import LoginForm from './components/LoginForm';
-import Navbar from './components/Navbar/Index'
+
 import DocLog from './components/DocLog';
 import RegisterSuccess from './components/RegisterSuccess';
 import RegisterFailed from './components/RegisterFailed';

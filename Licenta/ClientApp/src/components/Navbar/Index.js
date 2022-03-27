@@ -31,7 +31,7 @@ const Navbar = () => {
                    </NavLink>
                    <NavLink to="/Contact" >
                    <Phone size={20}/>
-                  Fati o programare
+                  Aici se fac programari
                    </NavLink>
                    <NavLink to="/SignForm" >
                    <UserPlus size={20}/>
@@ -60,7 +60,6 @@ const Navbar = () => {
                     <Dropdown.Menu className='Drop-content'>
                       <Link to="/" className='Item'>Home</Link>
                       <Link to="/SignForm" className='Item'>Inregistrare</Link>
-                      <Link to="/Contact" className='Item'>Contact</Link>
                       <Link to="/Services" className='Item'>Fa o programare</Link>
                       <Link to="/LoginForm"  className='Item'> Pacient</Link>
                      <Link to="/DocLog" className='Item'> Doctor</Link>

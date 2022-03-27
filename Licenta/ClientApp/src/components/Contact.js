@@ -10,10 +10,10 @@ import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import "react-datepicker/dist/react-datepicker.css";
 import Navbar from "./Navbar/Index";
-import { Button } from "react-bootstrap";
+import { Button, Modal,Form, ModalBody } from "react-bootstrap";
 
 import './Form.css'
-import { set } from "date-fns";
+
 const locales = {
     "en-US": require("date-fns/locale/en-US"),
 };
@@ -31,10 +31,13 @@ const event = [
    }
 ]
 
+
 export default function Contact() {
     
+   const [showEventWindow,setShowEventWindow]=useState(false);
+   const handleClose = () =>setShowEventWindow(false);
    
-    const[newEvent ,setNewEvent] = useState({title: "" , start: '' , end:""});
+    const[newEvent ,setNewEvent] = useState({title: "" , numar: "", start: "" , end:""});
     const[allEvent ,setAllEvent] = useState(event);
    
     function handleAddEvent () {
@@ -42,14 +45,19 @@ export default function Contact() {
     }
 
     return (
-      
-        <div className="App">
-          <Navbar />
+      <>
+         <Navbar />
+         <div className="Programare">
             <h1>Calendar</h1>
-            <h2>Add New Event</h2>
-          
-            <div> 
-                <input type="text" placeholder="Numele doctorului "  style={{width: "20%", marginRight:"10px"}}
+            <h2>Programari</h2>
+          </div>
+         <Modal show={showEventWindow} onHide={handleClose}>
+           <Modal.Header closeButton>
+              <Modal.Title>Add Event</Modal.Title>
+           </Modal.Header>
+            <ModalBody>
+            <Form>
+                <input type="text" placeholder=" Numele de familie si numarul de telefon "  style={{width: "20%", marginRight:"10px" }}
                 value= {newEvent.title} onChange={(e) => setNewEvent({...newEvent ,title : e.target.value })} />
                   <DatePicker placeholderText="Ora de incepere a consultatiei" style={{marginRight:"10px"}}
                   selected={newEvent.start} onChange={(start) => setNewEvent({...newEvent, start})} 
@@ -70,7 +78,7 @@ export default function Contact() {
                     setHours(setMinutes(new Date(), 0), 17),
                   ]}
                     dateFormat="MMMM d, yyyy h:mm aa"/>
-                      <DatePicker placeholderText="Ora de incepere a consultatiei" style={{marginRight:"10px"}}
+                      <DatePicker placeholderText="Ora de incepere a consultatiei" style={{marginRight:"10px" }}
                   selected={newEvent.end} onChange={(end) => setNewEvent({...newEvent, end})} 
                   showTimeSelect
                   includeTimes={[
@@ -88,11 +96,26 @@ export default function Contact() {
                     setHours(setMinutes(new Date(), 30), 16),
                     setHours(setMinutes(new Date(), 0), 17),
                   ]}
-                    dateFormat="MMMM d, yyyy h:mm aa"/>
-                  <Button onClick={handleAddEvent}>AddEvent</Button>
-            </div>
-            <Calendar localizer={localizer}  events={allEvent} startAccessor="start"  style={{ height: 500, margin: "50px" }} />
-        </div>
+                    dateFormat="MMMM d, yyyy h:mm aa"
+                   
+                   />
+                   </Form>
+                   </ModalBody>
+                      <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose} style={{backgroundColor: "black"}}>
+                          Close
+                        </Button>
+                        <Button variant="primary" onClick={handleAddEvent} style={{backgroundColor: "orange"}}>
+                          Save Changes
+                        </Button>
+                   </Modal.Footer>
+                    
+                  
+              </Modal>
+                  
+            <Calendar localizer={localizer}  events={allEvent} startAccessor="start" endAccessor="end" style={{ height: 500, margin: "50px" ,zIndex:"4" }} />
+       
+        </>
     );
 }
 

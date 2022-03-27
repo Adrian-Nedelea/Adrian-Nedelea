@@ -1,4 +1,5 @@
 import React from 'react'
+import DatePicker from 'react-datepicker';
 
 import './Form.css';
 import Navbar from './Navbar/Index'
@@ -9,6 +10,7 @@ function Home() {
     <Navbar />
         <div className='Home-Title'>
           <h2 className='titlul'>Clinica Med</h2>
+          
         </div>
 
       <div className='cve'></div>
