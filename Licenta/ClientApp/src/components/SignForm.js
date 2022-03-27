@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import {LogIn} from 'react-feather'
+import {User,LogIn} from 'react-feather'
 import Navbar from './Navbar/Index'
 
 import './Form.css'
@@ -60,8 +60,8 @@ export default function SignForm() {
         <div className='Form-inner'>
         <div className='Title'>Registration</div>
             <Form.Group className="Form-Group" controlId="FullName">
-              <Form.Label className='label'>Full Name</Form.Label>
-              <Form.Control className='Form-Control'  type="text" placeholder="Enter Full Name" 
+              <Form.Label className='label'>Numele si prenumele</Form.Label>
+              <Form.Control className='Form-Control'  type="text" placeholder="Nume+ prenumele " 
               value={FullName}
               onChange={(e)=>setFullName(e.target.value)}/>
             </Form.Group>
@@ -74,37 +74,37 @@ export default function SignForm() {
             </Form.Group>
 
             <Form.Group className="Form-Group" controlId="city">
-              <Form.Label className='label'>City</Form.Label>
-              <Form.Control className='Form-Control'  type="text" placeholder="Enter City" 
+              <Form.Label className='label'>Oras</Form.Label>
+              <Form.Control className='Form-Control'  type="text" placeholder="Orasul Dumnevoastra" 
               
               value={city}
               onChange={(e)=>setCity(e.target.value)}/>
             </Form.Group>
 
             <Form.Group className="Form-Group" controlId="Email">
-              <Form.Label className='label'>Email address</Form.Label>
-              <Form.Control className='Form-Control' type="email" placeholder="Enter email"
+              <Form.Label className='label'>Adresa Email</Form.Label>
+              <Form.Control className='Form-Control' type="email" placeholder="Adresa de email"
               value={Email}
               onChange={(e)=>setEmail(e.target.value)}/>
             </Form.Group>
 
             <Form.Group className="Form-Group" controlId="Phone">
-              <Form.Label className='label'>Phone Number</Form.Label>
-              <Form.Control className='Form-Control'  type="number" placeholder="Enter Phone number" 
+              <Form.Label className='label'>Numar Telefon</Form.Label>
+              <Form.Control className='Form-Control'  type="number" placeholder="Numarul de telefon" 
               value={Phone}
               onChange={(e)=>setPhone(e.target.value)}/>
             </Form.Group>
 
             <Form.Group className="Form-Group" controlId="Password">
-              <Form.Label className='label'>Password</Form.Label>
-              <Form.Control className='Form-Control'  type="password" placeholder="Password" 
+              <Form.Label className='label'>Parola</Form.Label>
+              <Form.Control className='Form-Control'  type="password" placeholder="Parola" 
               value={Password}
               onChange={(e)=>setPassword(e.target.value)}/>
             </Form.Group>
 
             <Form.Group className="Form-Group" controlId="ConfPassword">
-              <Form.Label className='label'>Confirm Password</Form.Label>
-              <Form.Control className='Form-Control' type="password" placeholder="Confirm Password" 
+              <Form.Label className='label'>Confirma Parola</Form.Label>
+              <Form.Control className='Form-Control' type="password" placeholder="Confirma Parola" 
               value={ConfPassword}
               onChange={(e)=>setConfPassword(e.target.value)}/>
             </Form.Group>
@@ -114,6 +114,14 @@ export default function SignForm() {
             <LogIn size={20}/>
               Submit
             </Button>
+
+            <div className='Btn-center'>
+              <p className='text-btn'>Aveti deja un cont ?</p>   
+             <Button className='buttonR'   href="/LoginForm">
+            <User size={20}/>
+             Autentificare
+            </Button>
+            </div>
           </div>
       </Form>
       </div>

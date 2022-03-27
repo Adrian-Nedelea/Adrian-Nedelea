@@ -95,7 +95,7 @@ Form::after{
     box-shadow: 0px 0px 3px rgba(0 , 0 ,0 ,0.2);
 }
 
-.Form .Form-inner .button{
+ .button{
     display: inline-block;
     padding: 10px 15px;
     border-radius: 8px;
@@ -107,33 +107,21 @@ Form::after{
     font-weight: 700;
     cursor: pointer;
 }
-.Form .Form-inner .button:hover{
+ .button:hover{
     background-position: 100% 0%;
 }
 
-.Form .Form-inner .buttonR{
-    display: inline-block;
-    padding: 10px 15px;
-    border-radius: 8px;
-    background-image: linear-gradient(to right,#2FB7D7,#2FB7D7,#2471A3);
-    background-size: 200%;
-    background-position: 0%;
-    margin-left: 97px;
-    transition: 0.4s;
-    color:#FFF;
-    font-weight: 700;
-    cursor: pointer;
+ .buttonR{
+    display: block;
 }
-.Form .Form-inner .buttonR:hover{
-    background-position: 100% 0%;
-}
+
 
 .Login{
     height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: whitesmoke;
+    
 }
 
 .registerstatus{
@@ -157,10 +145,102 @@ Form::after{
 }
 
 .Text{
-    display: inline-block;
-    padding: 10px 15px;
-    border-radius: 8px;
-    margin-left: 97px;
-    font-weight: 700;
-    cursor: pointer;
+    font-size: 33px;
+    line-height: 1.45;
+    color: #15283f;
+    display: block;
+    width: 100%;
+    text-align: center;
 }
+
+.text-btn{
+    font-size: 16px;
+    line-height: 1.45;
+    color: #15283f;
+    display: block;
+    width: 100%;
+    text-align: center;
+   
+}
+
+.Tile-home{
+display: block;
+}
+
+.Text-mic{
+    text-align: center;
+}
+ .Grup{
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+ }
+
+ .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default radio button */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the radio button is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .container .checkmark:after {
+       top: 9px;
+      left: 9px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+  }
+
+  .App{
+      text-align: center;
+  }

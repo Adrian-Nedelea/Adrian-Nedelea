@@ -49,7 +49,7 @@ export default function LoginForm() {
     <div className='Login'>
       <Form onSubmit={handleSubmit} className="Form">
         <div className='Form-inner'>
-        <div className='Title'>Login</div>
+        <div className='Title'>Autentificare</div>
             <Form.Group className="Form-Group" controlId="Username">
               <Form.Label className='label'>Username</Form.Label>
               <Form.Control className='Form-Control'  type="text" placeholder="Enter Username"
@@ -58,21 +58,26 @@ export default function LoginForm() {
             </Form.Group>
 
             <Form.Group className="Form-Group" controlId="Password">
-              <Form.Label className='label'>Password</Form.Label>
-              <Form.Control className='Form-Control'  type="password" placeholder="Password"
+              <Form.Label className='label'>Parola</Form.Label>
+              <Form.Control className='Form-Control'  type="password" placeholder="Parola"
               value={Password}
               onChange={(e)=>setPassword(e.target.value)} />
             </Form.Group>
 
+         
             <Button className='button' type="submit">
             <LogIn size={20}/>
-              Log in
+              Autentificare
             </Button>
-
-            <Button className='buttonR'   href="/SignForm">
+           
+            
+           
+              <p className='text-btn'>Nu aveti cont ?</p>   
+             <Button className='buttonR'   href="/SignForm">
             <UserPlus size={20}/>
-              Register 
+             Inregistrare
             </Button>
+            
 
         </div>
       </Form>

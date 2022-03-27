@@ -10,8 +10,8 @@ import Navbar from './Navbar/Index'
     <>
     <Navbar/>
     <div className='registerstatus'>
-      <p className='Text'><Frown size={25} />Failed -- wrong credentials --</p>
-      <Button className='ButtonReg' href="/LoginForm">Try again</Button>
+      <p className='Text'><Frown size={25} />Esuat -- date gresite --</p>
+      <Button className='ButtonReg' href="/LoginForm">Mai incearca</Button>
     </div>
     </>
   )

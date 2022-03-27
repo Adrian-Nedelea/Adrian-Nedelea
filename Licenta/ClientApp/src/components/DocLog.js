@@ -12,7 +12,7 @@ export default function DocLog() {
     <div className='Login'>
       <Form className="Form">
         <div className='Form-inner'>
-        <div className='Title'>Login</div>
+        <div className='Title'>Autentificare</div>
             <Form.Group className="Form-Group" controlId="Code">
               <Form.Label className='label'>Code</Form.Label>
               <Form.Control className='Form-Control'  type="text" placeholder="Assistant code " />
@@ -20,7 +20,7 @@ export default function DocLog() {
             
             <Button className='button' type="submit">
             <LogIn size={20}/>
-              Log in Doc
+             Autentificare Doctor
             </Button>        
         </div>
       </Form>

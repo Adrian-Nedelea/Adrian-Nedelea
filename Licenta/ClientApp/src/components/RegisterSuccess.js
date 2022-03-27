@@ -10,8 +10,8 @@ export default function RegisterSuccess(){
         <>
         <Navbar/>
         <div className='registerstatus'>
-            <p className='Text'> Account was created <ThumbsUp size={25}/> </p>
-            <Button className='ButtonReg' href='/LoginForm' > You can Log In now</Button>
+            <p className='Text'> Contul a fost creat <ThumbsUp size={25}/> </p>
+            <Button className='ButtonReg' href='/LoginForm' > Te poti autentifica </Button>
          </div>
          </>
     )

@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <>
       <Nav ref={navRef}>
-          <img width="70px"  height="auto" src={require('./logo/logo.png')}   alt="logo" />
+          <img width="80px"  height="auto" src={require('./logo/Logo12.jpg')}   alt="logo" />
               
                <NavMenu>
                <NavLink to="/" >
@@ -27,26 +27,26 @@ const Navbar = () => {
                </NavLink>
                    <NavLink to="/Services" >
                    <Info size={20}/>
-                   Services
+                      Servicii
                    </NavLink>
                    <NavLink to="/Contact" >
                    <Phone size={20}/>
-                   Contact
+                  Fati o programare
                    </NavLink>
                    <NavLink to="/SignForm" >
                    <UserPlus size={20}/>
-                   Sign Up
+                  Inregistrare
                    </NavLink>
                    
                <Dropdown className='drop'>
                  <Dropdown.Toggle className='Drop-toggle' >
                  <LogIn size={20}/>
-                   Log In
+                  Autentificare
                  </Dropdown.Toggle>
 
                  <Dropdown.Menu className='Drop-content'>
-                   <Link to="/LoginForm"  className='Item'>Login as Patient</Link>
-                   <Link to="/DocLog" className='Item'>Login as Doctor</Link>
+                   <Link to="/LoginForm"  className='Item'> Pacient</Link>
+                   <Link to="/DocLog" className='Item'> Doctor</Link>
                  </Dropdown.Menu>
                </Dropdown>
                </NavMenu>
@@ -54,16 +54,16 @@ const Navbar = () => {
 
                 <Dropdown className='nav-btn' >
                   <Dropdown.Toggle className='Drop-toggle'  >
-                    Items
+                    Informatii
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu className='Drop-content'>
                       <Link to="/" className='Item'>Home</Link>
-                      <Link to="/SignForm" className='Item'>Sign Up</Link>
+                      <Link to="/SignForm" className='Item'>Inregistrare</Link>
                       <Link to="/Contact" className='Item'>Contact</Link>
-                      <Link to="/Services" className='Item'>Services</Link>
-                      <Link to="/LoginForm"  className='Item'>Login as Patient</Link>
-                     <Link to="/DocLog" className='Item'>Login as Doctor</Link>
+                      <Link to="/Services" className='Item'>Fa o programare</Link>
+                      <Link to="/LoginForm"  className='Item'> Pacient</Link>
+                     <Link to="/DocLog" className='Item'> Doctor</Link>
                       </Dropdown.Menu>
                   </Dropdown>       
 

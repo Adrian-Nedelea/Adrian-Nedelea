@@ -10,8 +10,8 @@ import Navbar from './Navbar/Index'
     <>
     <Navbar />
     <div className='registerstatus'>
-      <p className='Text'><Frown size={25} />Failed the account was not created</p>
-      <Button className='ButtonReg' href="/SignForm">Try again</Button>
+      <p className='Text'><Frown size={25} />Contul nu a fost creat</p>
+      <Button className='ButtonReg' href="/SignForm">Mai incearca</Button>
     </div>
     </>
   )
