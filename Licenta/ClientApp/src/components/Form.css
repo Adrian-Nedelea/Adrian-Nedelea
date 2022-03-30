@@ -245,4 +245,13 @@ display: block;
       text-align: center;
   }
 
+  .input-label{
+    text-align: center;
+    margin-left: 15%;
+    width:70%;
+  }
  
+.datepick{
+        text-align: center;
+        margin-left: 30%;
+}

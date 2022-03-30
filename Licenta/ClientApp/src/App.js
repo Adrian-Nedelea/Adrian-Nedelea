@@ -15,6 +15,7 @@ import UserLoggedIn from './components/UserLoggedIn';
 
 
 
+
 export default function App () {
   
     return (
@@ -23,13 +24,14 @@ export default function App () {
           <Route path="/" exact element={<Home/>} />
           <Route path="/Services" exact element={<Services/>} />
           <Route path="/Contact" exact element={<Contact/>} />
+         
           <Route path="/SignForm" exact element={<SignForm/>} />
           <Route path="/LoginForm" exact element={<LoginForm/>}/>
           <Route path="/DocLog" exact element={<DocLog/>}/>
           <Route path="/RegisterSuccess" exact element={<RegisterSuccess/>}/>
           <Route path="/RegisterFailed" exact element={<RegisterFailed/>}/>  
           <Route path="/LoginFailed" exact element={<LoginFailed/>} />
-          <Route path='/LoginSuccess' exact element={<UserLoggedIn/>} />
+          <Route path="/UserLoggedIn" exact element={<UserLoggedIn/>} />
       </Routes>
     </>
 

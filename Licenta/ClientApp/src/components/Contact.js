@@ -9,8 +9,8 @@ import DatePicker from "react-datepicker";
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import "react-datepicker/dist/react-datepicker.css";
-import Navbar from "./Navbar/Index";
-import { Button, Modal,Form, ModalBody } from "react-bootstrap";
+import NavbarPac from "./Navbar/NavbarPac";
+import { Button, Form, Modal, ModalBody } from "react-bootstrap";
 
 import './Form.css'
 
@@ -31,35 +31,70 @@ const event = [
    }
 ]
 
+async function  PostEvent(credentials)
+{
+  console.log(credentials);
+}
 
-export default function Contact() {
+async function createCredentials(credentials)
+{
+    return credentials;
+}
+
+
+
+export default function Contact(props) {
+
+  const [selected,setSelected]=useState(null);
+  const [getEvent ,setGetEvent]=useState(null);
+  const [eventUser,setEventUser]=useState(props.Username);
+
     
    const [showEventWindow,setShowEventWindow]=useState(false);
    const handleClose = () =>setShowEventWindow(false);
+   const handleShow = () =>setShowEventWindow(true);
+
+   const [showEventEdit,setShowEventEdit]=useState(false);
+   const handleEditClose= () => setShowEventEdit(false);
+   const handleEditShow = () => setShowEventEdit(true);
+
    
-    const[newEvent ,setNewEvent] = useState({title: "" , numar: "", start: "" , end:""});
-    const[allEvent ,setAllEvent] = useState(event);
+    const[newEvent ,setNewEvent] = useState({title: "" ,  start: "" , end:""});
+    const[allEvent ,setAllEvent] = useState([]);
    
     function handleAddEvent () {
         setAllEvent([...allEvent, newEvent])
     }
+  
+    const SaveEvent =async e =>{
+        e.preventDefault();
+        const response= await PostEvent({
+              eventUser,
+              newEvent,
+              allEvent
+        });
+      
+    }
+    
 
     return (
       <>
-         <Navbar />
+         <NavbarPac />
          <div className="Programare">
             <h1>Calendar</h1>
             <h2>Programari</h2>
+            <Button onClick={handleShow}>Add Event</Button>
           </div>
+         
          <Modal show={showEventWindow} onHide={handleClose}>
            <Modal.Header closeButton>
-              <Modal.Title>Add Event</Modal.Title>
+              <Modal.Title  >Va rugam intervalul orar sa fie de 30 minute</Modal.Title>
+
            </Modal.Header>
-            <ModalBody>
-            <Form>
-                <input type="text" placeholder=" Numele de familie si numarul de telefon "  style={{width: "20%", marginRight:"10px" }}
-                value= {newEvent.title} onChange={(e) => setNewEvent({...newEvent ,title : e.target.value })} />
-                  <DatePicker placeholderText="Ora de incepere a consultatiei" style={{marginRight:"10px"}}
+            <ModalBody className="Mini-form">
+                <input className="input-label" type="text" placeholder=" Numele de familie si numarul de telefon "  
+                value= {newEvent.title} onChange={(e) => setNewEvent( { ...newEvent, title : e.target.value })} />
+                  <DatePicker className="datepick" placeholderText="Ora de incepere a consultatiei" 
                   selected={newEvent.start} onChange={(start) => setNewEvent({...newEvent, start})} 
                   showTimeSelect
                   includeTimes={[
@@ -78,8 +113,9 @@ export default function Contact() {
                     setHours(setMinutes(new Date(), 0), 17),
                   ]}
                     dateFormat="MMMM d, yyyy h:mm aa"/>
-                      <DatePicker placeholderText="Ora de incepere a consultatiei" style={{marginRight:"10px" }}
-                  selected={newEvent.end} onChange={(end) => setNewEvent({...newEvent, end})} 
+                      
+                     <DatePicker className ="datepick" placeholderText="Ora de incepere a consultatiei" style={{marginRight:"10px" }}
+                  selected={newEvent.end} onChange={(end) => setNewEvent({...newEvent, end })} 
                   showTimeSelect
                   includeTimes={[
                     setHours(setMinutes(new Date(), 0), 12),
@@ -99,21 +135,40 @@ export default function Contact() {
                     dateFormat="MMMM d, yyyy h:mm aa"
                    
                    />
-                   </Form>
+                  
                    </ModalBody>
                       <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose} style={{backgroundColor: "black"}}>
-                          Close
+                        <Modal.Title>Salvati o sigura data ,nu apasati de mai multe ori</Modal.Title>
+                        <Button variant="secondary" onClick={handleClose} >
+                         Inchide
                         </Button>
-                        <Button variant="primary" onClick={handleAddEvent} style={{backgroundColor: "orange"}}>
-                          Save Changes
+                        <Button variant="primary" onClick={handleAddEvent} >
+                          Salveaza
                         </Button>
-                   </Modal.Footer>
-                    
-                  
+                   </Modal.Footer>     
               </Modal>
-                  
-            <Calendar localizer={localizer}  events={allEvent} startAccessor="start" endAccessor="end" style={{ height: 500, margin: "50px" ,zIndex:"4" }} />
+
+
+
+              <Modal show={showEventEdit} onHide={handleEditClose}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Editeaza Programarea</Modal.Title>
+                  </Modal.Header>
+
+                <Modal.Body>
+                  <p>Modal body text goes here.</p>
+                </Modal.Body>
+
+                <Modal.Footer>
+                  <Button onClick={handleEditClose} variant="secondary">Close</Button>
+                  <Button variant="primary">Editeaza</Button>
+                </Modal.Footer>
+                
+                </Modal>
+
+
+              
+            <Calendar  onSelectEvent={handleEditShow} onSelectSlot={handleShow} localizer={localizer}  events={allEvent} startAccessor="start" endAccessor="end" style={{ height: 500, margin: "50px" ,zIndex:"4" }} />
        
         </>
     );

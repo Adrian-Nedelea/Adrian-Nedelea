@@ -35,11 +35,12 @@ export default function LoginForm() {
         Password
       });
       console.log(response);
-      if(!response.ok){
-       navigate('/LoginFailed');
+      if(response.ok){
+       
+       navigate('/UserLoggedIn');
       }
       else{
-        navigate('/LoginSuccess');
+        navigate('/LoginFailed');
       }
     }
 
