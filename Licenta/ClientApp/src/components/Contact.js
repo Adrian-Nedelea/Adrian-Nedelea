@@ -31,7 +31,7 @@ const event = [
    }
 ]
 
-async function  PostEvent(credentials)
+async function PostEvents(credentials)
 {
   console.log(credentials);
 }
@@ -47,7 +47,8 @@ export default function Contact(props) {
 
   const [selected,setSelected]=useState(null);
   const [getEvent ,setGetEvent]=useState(null);
-  const [eventUser,setEventUser]=useState(props.Username);
+  const [eventsUser,setEventUser]=useState(props.Username);
+  const [eventdate, setEventDate]=useState("");
 
     
    const [showEventWindow,setShowEventWindow]=useState(false);
@@ -59,19 +60,18 @@ export default function Contact(props) {
    const handleEditShow = () => setShowEventEdit(true);
 
    
-    const[newEvent ,setNewEvent] = useState({title: "" ,  start: "" , end:""});
-    const[allEvent ,setAllEvent] = useState([]);
+    const[newEvents ,setNewEvents] = useState({title: "" ,  start: "" , end:""});
+    const[allEvents ,setAllEvents] = useState([]);
    
-    function handleAddEvent () {
-        setAllEvent([...allEvent, newEvent])
+    function handleAddEvents () {
+        setAllEvents([...allEvents, newEvents])
     }
   
-    const SaveEvent =async e =>{
+    const SaveEvents =async e =>{
         e.preventDefault();
-        const response= await PostEvent({
-              eventUser,
-              newEvent,
-              allEvent
+        const response= await PostEvents({
+              eventsUser,
+              newEvents,
         });
       
     }
@@ -83,7 +83,7 @@ export default function Contact(props) {
          <div className="Programare">
             <h1>Calendar</h1>
             <h2>Programari</h2>
-            <Button onClick={handleShow}>Add Event</Button>
+            <Button onClick={handleShow}>Adauga o programare</Button>
           </div>
          
          <Modal show={showEventWindow} onHide={handleClose}>
@@ -93,9 +93,9 @@ export default function Contact(props) {
            </Modal.Header>
             <ModalBody className="Mini-form">
                 <input className="input-label" type="text" placeholder=" Numele de familie si numarul de telefon "  
-                value= {newEvent.title} onChange={(e) => setNewEvent( { ...newEvent, title : e.target.value })} />
+                value= {newEvents.title} onChange={(e) => setNewEvents( { ...newEvents, title : e.target.value })} />
                   <DatePicker className="datepick" placeholderText="Ora de incepere a consultatiei" 
-                  selected={newEvent.start} onChange={(start) => setNewEvent({...newEvent, start})} 
+                  selected={newEvents.start} onChange={(start) => setNewEvents({...newEvents, start})} 
                   showTimeSelect
                   includeTimes={[
                     setHours(setMinutes(new Date(), 0), 12),
@@ -115,7 +115,7 @@ export default function Contact(props) {
                     dateFormat="MMMM d, yyyy h:mm aa"/>
                       
                      <DatePicker className ="datepick" placeholderText="Ora de incepere a consultatiei" style={{marginRight:"10px" }}
-                  selected={newEvent.end} onChange={(end) => setNewEvent({...newEvent, end })} 
+                  selected={newEvents.end} onChange={(end) => setNewEvents({...newEvents, end })} 
                   showTimeSelect
                   includeTimes={[
                     setHours(setMinutes(new Date(), 0), 12),
@@ -142,7 +142,7 @@ export default function Contact(props) {
                         <Button variant="secondary" onClick={handleClose} >
                          Inchide
                         </Button>
-                        <Button variant="primary" onClick={handleAddEvent} >
+                        <Button variant="primary" onClick={handleAddEvents} >
                           Salveaza
                         </Button>
                    </Modal.Footer>     
@@ -168,7 +168,7 @@ export default function Contact(props) {
 
 
               
-            <Calendar  onSelectEvent={handleEditShow} onSelectSlot={handleShow} localizer={localizer}  events={allEvent} startAccessor="start" endAccessor="end" style={{ height: 500, margin: "50px" ,zIndex:"4" }} />
+            <Calendar  onSelectEvent={handleEditShow} onSelectSlot={handleShow} localizer={localizer}  events={allEvents} startAccessor="start" endAccessor="end" style={{ height: 500, margin: "50px" ,zIndex:"4" }} />
        
         </>
     );
