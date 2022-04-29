@@ -1,21 +1,23 @@
 import React from 'react'
-import DatePicker from 'react-datepicker';
-
 import './Form.css';
+import Footer from './Navbar/Footer';
 import Navbar from './Navbar/Index'
+import Carusel from './Navbar/carousel';
 
-function Home() {
+
+export default function Home() {
   return (
     <>
-    <Navbar />
+    <Navbar/>
+    <Carusel/>
         <div className='Home-Title'>
-          <h2 className='titlul'>Clinica Med</h2>
+        <h2 className='titlul'>Clinica Med</h2>
           
         </div>
-
-      <div className='cve'></div>
-    </>
+    
+    <Footer/>
+    </> 
   )
 }
 
-export default Home
+

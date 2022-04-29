@@ -24,7 +24,6 @@ export default function App () {
           <Route path="/" exact element={<Home/>} />
           <Route path="/Services" exact element={<Services/>} />
           <Route path="/Contact" exact element={<Contact/>} />
-         
           <Route path="/SignForm" exact element={<SignForm/>} />
           <Route path="/LoginForm" exact element={<LoginForm/>}/>
           <Route path="/DocLog" exact element={<DocLog/>}/>

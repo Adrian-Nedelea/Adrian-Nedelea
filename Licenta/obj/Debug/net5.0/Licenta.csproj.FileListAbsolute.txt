@@ -72,5 +72,4 @@ C:\Users\Nedi\Desktop\Proiect\Diploma-Project\Licenta\obj\Debug\net5.0\Licenta.d
 C:\Users\Nedi\Desktop\Proiect\Diploma-Project\Licenta\obj\Debug\net5.0\Licenta.pdb
 C:\Users\Nedi\Desktop\Proiect\Diploma-Project\Licenta\obj\Debug\net5.0\Licenta.genruntimeconfig.cache
 C:\Users\Nedi\Desktop\Proiect\Diploma-Project\Licenta\obj\Debug\net5.0\ref\Licenta.dll
-C:\Users\Nedi\Desktop\Proiect\Diploma-Project\Licenta\bin\Debug\net5.0\ref\Licenta.dll
-C:\Users\Nedi\Desktop\Proiect\Diploma-Project\Licenta\obj\Debug\net5.0\staticwebassets\Licenta.StaticWebAssets.xml
+C:\Users\Nedi\Desktop\Proiect\Diploma-Project\Licenta\obj\Debug\net5.0\refint\Licenta.dll

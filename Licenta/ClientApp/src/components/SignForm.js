@@ -54,6 +54,7 @@ export default function SignForm() {
  
   return (
     <>
+    <div className='Back'>
       <Navbar/>
     <div className='Formular'>
       <Form onSubmit={handleSubmit} className='Form'>
@@ -114,6 +115,7 @@ export default function SignForm() {
             <LogIn size={20}/>
               Submit
             </Button>
+            
 
             <div className='Btn-center'>
               <p className='text-btn'>Aveti deja un cont ?</p>   
@@ -125,6 +127,7 @@ export default function SignForm() {
           </div>
       </Form>
       </div>
+    </div>
   </>
   )
 }

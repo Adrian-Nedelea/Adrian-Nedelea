@@ -2,7 +2,7 @@ import format from "date-fns/format";
 import getDay from "date-fns/getDay";
 import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
-import React, { useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import DatePicker from "react-datepicker";
@@ -13,6 +13,19 @@ import NavbarPac from "./Navbar/NavbarPac";
 import { Button, Form, Modal, ModalBody } from "react-bootstrap";
 
 import './Form.css'
+{/*
+async function PostEvents(credentials)
+{
+  console.log(credentials);
+  return fetch('http://localhost:5000/api/event/addevent' , {
+    method:'POST',
+    headers: {'Content-Type': 'application/json'},
+    body :JSON.stringify(credentials)
+  })
+  .then(data =>data )
+}
+*/}
+
 
 const locales = {
     "en-US": require("date-fns/locale/en-US"),
@@ -31,10 +44,7 @@ const event = [
    }
 ]
 
-async function PostEvents(credentials)
-{
-  console.log(credentials);
-}
+
 
 async function createCredentials(credentials)
 {
@@ -45,8 +55,7 @@ async function createCredentials(credentials)
 
 export default function Contact(props) {
 
-  const [selected,setSelected]=useState(null);
-  const [getEvent ,setGetEvent]=useState(null);
+ 
   const [eventsUser,setEventUser]=useState(props.Username);
   const [eventdate, setEventDate]=useState("");
 
@@ -61,20 +70,51 @@ export default function Contact(props) {
 
    
     const[newEvents ,setNewEvents] = useState({title: "" ,  start: "" , end:""});
-    const[allEvents ,setAllEvents] = useState([]);
+    const[allEvents ,setAllEvents] = useState(getLocalItems());
+    
    
     function handleAddEvents () {
-        setAllEvents([...allEvents, newEvents])
+      setAllEvents([...allEvents, newEvents])
     }
-  
-    const SaveEvents =async e =>{
+
+// SAVE LS
+
+    useEffect(() => {
+      localStorage.setItem('allEvents', JSON.stringify(allEvents));
+    }, [allEvents]);
+
+//Get LS
+const getLocalItems= () => {
+  let list= localStorage.getItem('allEvents');
+  console.log(allEvents);
+
+  if(list) {
+    return JSON.parse(localStorage.getItem('allEvents'));
+  }
+  else{
+      return [];
+  }
+}
+   
+  {/*  const SaveEvents =async e =>{
         e.preventDefault();
         const response= await PostEvents({
               eventsUser,
               newEvents,
+              eventdate
         });
-      
+        if(response.ok)
+        window.location.reload(false);
     }
+
+    const handeSaveEvent = async e =>
+    {
+      e.preventDefault();
+      const response =await PostEvents({
+        newEvents,
+        eventsUser
+      });
+    } */}
     
 
     return (

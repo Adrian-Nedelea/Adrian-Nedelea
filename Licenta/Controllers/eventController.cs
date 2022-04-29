@@ -37,5 +37,36 @@ namespace Licenta.Controllers{
                 return BadRequest(new {message="Failure"});
             }
         }
+
+        [HttpPost("getbyuser")]
+
+        public async Task<JsonResult> GetEventsByUser(Username user_test)
+        {
+            var events= new List<EventsEntity>();
+            events= await _eventsRepository.GetEventsByUser(user_test.userstring);
+            return Json(events);
+        }
+
+        [HttpPost("delete")]
+        public async Task<IActionResult> DeleteEvents(Events events_test)
+        {
+            try{
+                await _eventsRepository.DeleteEvents(events_test.eventsuser,events_test.eventsdate);
+                return Ok("Success");
+            }
+            catch(System.Exception e)
+            {
+                Console.WriteLine("{0}",e);
+                return BadRequest(new {message="Failure"});
+            }
+        }
+
+        [HttpGet("getall")]
+        public async Task<JsonResult> GetAllEvents()
+        {
+            var events =new List<EventsEntity>();
+            events=await _eventsRepository.GetAllEvents();
+            return Json(events);
+        }
     }
 }

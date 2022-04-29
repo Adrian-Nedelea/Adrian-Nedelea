@@ -1,0 +1,13 @@
+.Container-car{
+   height: auto;
+   width:100%;
+}
+
+.carusel{
+    display: block;
+    width: 700;
+    padding: 30;
+}
+.Poze{
+    width: 700;
+}

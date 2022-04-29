@@ -5,7 +5,7 @@ export default function UserLoggedIn (){
     return(
         <>
         <NavbarPac/>
-        <h1>You are logged in Patient</h1>
+        <h1>Esti conectat</h1>
         </>
     )
 }

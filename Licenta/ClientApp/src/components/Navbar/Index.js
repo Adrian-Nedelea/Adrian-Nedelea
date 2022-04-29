@@ -3,7 +3,7 @@ import {Nav,NavLink,Bars,NavMenu,} from './Navbar'
 import {Dropdown} from 'react-bootstrap'
 import { Home,UserPlus,Info,LogIn,Phone} from 'react-feather'
 import {Link} from 'react-router-dom'
-import { FaBars,FaTimes } from 'react-icons/fa'
+import { FaBars,FaTimes, FaUserTimes } from 'react-icons/fa'
 import { Button } from 'react-bootstrap'
 
 
@@ -17,19 +17,19 @@ const Navbar = () => {
   }
   return (
     <>
-      <Nav ref={navRef}>
-          <img width="80px"  height="auto" src={require('./logo/Logo12.jpg')}   alt="logo" />
+      <Nav ref={navRef} >
+      <strong style={{ fontSize: "1.8rem" }}>Ned.</strong>
               
                <NavMenu>
-               <NavLink to="/" >
+               <NavLink  className="link" to="/" >
              <Home size={20}/>
               Home
                </NavLink>
-                   <NavLink to="/Services" >
+                   <NavLink className="link"  to="/Services" >
                    <Info size={20}/>
                       Servicii
                    </NavLink>
-                   <NavLink to="/SignForm" >
+                   <NavLink className="link"  to="/SignForm" >
                    <UserPlus size={20}/>
                   Inregistrare
                    </NavLink>
@@ -41,8 +41,8 @@ const Navbar = () => {
                  </Dropdown.Toggle>
 
                  <Dropdown.Menu className='Drop-content'>
-                   <Link to="/LoginForm"  className='Item'> Pacient</Link>
-                   <Link to="/DocLog" className='Item'> Doctor</Link>
+                   <Link to="/LoginForm"  className='Item'> Pacient<span> |</span></Link>
+                   <Link to="/DocLog" className='Item'> Doctor<span> |</span></Link>
                  </Dropdown.Menu>
                </Dropdown>
                </NavMenu>
@@ -54,11 +54,11 @@ const Navbar = () => {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu className='Drop-content'>
-                      <Link to="/" className='Item'>Home</Link>
-                      <Link to="/Services" className='Item'>Servicii</Link>
-                      <Link to="/SignForm" className='Item'>Inregistrare</Link>
-                      <Link to="/LoginForm"  className='Item'> Pacient</Link>
-                     <Link to="/DocLog" className='Item'> Doctor</Link>
+                      <Link to="/" className='Item'>Home<span> |</span></Link>
+                      <Link to="/Services" className='Item'>Servicii<span> |</span></Link>
+                      <Link to="/SignForm" className='Item'>Inregistrare<span> |</span></Link>
+                      <Link to="/LoginForm"  className='Item'> Pacient<span> |</span></Link>
+                     <Link to="/DocLog" className='Item'> Doctor<span > |</span></Link>
                       </Dropdown.Menu>
                   </Dropdown>       
 
