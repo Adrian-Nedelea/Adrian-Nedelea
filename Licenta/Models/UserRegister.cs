@@ -5,7 +5,7 @@ namespace Models
     public class UserRegister
     {
         public UserRegister() { }
-
+        
         public string FullName { get; set; }
 
         public string City { get; set; }

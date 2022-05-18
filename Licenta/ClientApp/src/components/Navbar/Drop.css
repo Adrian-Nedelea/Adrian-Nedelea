@@ -6,8 +6,12 @@
 }
 
 .drop {
-    position: relative;
+  
     display: inline-block;
+    margin-top: 5px;
+    position: absolute;
+     right: 0;
+    margin-right: 15rem;
   }
   
   .Drop-toggle{
@@ -61,6 +65,7 @@
   color: #0f94bd;
   visibility: hidden;
   opacity: 0;
+  
 }
 
 @media only screen and  ( max-width: 1024px){

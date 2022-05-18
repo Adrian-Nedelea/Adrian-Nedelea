@@ -34,7 +34,7 @@ const Navbar = () => {
                   Inregistrare
                    </NavLink>
                    
-               <Dropdown className='drop'>
+                   <Dropdown className='drop'>
                  <Dropdown.Toggle className='Drop-toggle' >
                  <LogIn size={20}/>
                   Autentificare
@@ -46,6 +46,7 @@ const Navbar = () => {
                  </Dropdown.Menu>
                </Dropdown>
                </NavMenu>
+               
 
 
                 <Dropdown className='nav-btn' >

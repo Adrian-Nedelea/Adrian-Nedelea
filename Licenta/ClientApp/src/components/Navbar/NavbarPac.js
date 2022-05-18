@@ -18,7 +18,7 @@ const NavbarPac = () => {
   return (
     <>
       <Nav ref={navRef}>
-          <img width="80px"  height="auto" src={require('./logo/Logo12.jpg')}   alt="logo" />
+      <strong style={{ fontSize: "1.8rem" }}>Ned.</strong>
               
                <NavMenu>
                <NavLink to="/UserLoggedIn" >
@@ -28,6 +28,10 @@ const NavbarPac = () => {
                    <NavLink to="/Contact" >
                    <Phone size={20}/>
                   Aici se fac programari
+                   </NavLink>
+                   <NavLink to="/Chat" >
+                   <Phone size={20}/>
+                    Chat
                    </NavLink>
                </NavMenu>
 

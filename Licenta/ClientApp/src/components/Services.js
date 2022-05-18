@@ -5,9 +5,7 @@ function Services() {
   return (
     <>
     <Navbar/>
-    <div>
-      <h1>Services</h1>
-    </div>
+    <h1>Servicii</h1>
     </>
   )
 }

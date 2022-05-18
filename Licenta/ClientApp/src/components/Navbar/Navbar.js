@@ -12,17 +12,20 @@ background-image: linear-gradient(to right,#5DADE2 55%,#F2FBFB);
 `;
 
 export const NavLink = styled(Link)`
+
   color: #fff;
   display: flex;
   align-items: center;
   text-decoration: none;
   padding: 0 1rem;
+  margin-left:30px;
   height: 100%;
   cursor: pointer;
   &.active {
     color: black;
   }
 `;
+
 export const Bars = styled(FaBars)`
   display: none;
   color: #fff;

@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { LogIn, UserPlus } from 'react-feather'
 import { useState } from 'react'
-import {  useNavigate } from 'react-router'
+import {useNavigate} from 'react-router-dom'
 import Navbar from './Navbar/Index'
 
 async function LoginUser(credentials)
@@ -48,19 +48,19 @@ export default function LoginForm() {
     <>
     <Navbar/>
     <div className='Login'>
-      <Form onSubmit={handleSubmit} className="Form">
-        <div className='Form-inner'>
+      <Form onSubmit={handleSubmit} className="Form1">
+        <div className='Form1-inner'>
         <div className='Title'>Autentificare</div>
-            <Form.Group className="Form-Group" controlId="Username">
+            <Form.Group className="Form1-Group" controlId="Username">
               <Form.Label className='label'>Username</Form.Label>
-              <Form.Control className='Form-Control'  type="text" placeholder="Enter Username"
+              <Form.Control className='Form1-Control'  type="text" placeholder="Enter Username"
                 value={Username}
                 onChange={(e)=>setUsername(e.target.value)} /> 
             </Form.Group>
 
-            <Form.Group className="Form-Group" controlId="Password">
+            <Form.Group className="Form1-Group" controlId="Password">
               <Form.Label className='label'>Parola</Form.Label>
-              <Form.Control className='Form-Control'  type="password" placeholder="Parola"
+              <Form.Control className='Form1-Control'  type="password" placeholder="Parola"
               value={Password}
               onChange={(e)=>setPassword(e.target.value)} />
             </Form.Group>
@@ -86,5 +86,3 @@ export default function LoginForm() {
     </>
   )
 }
-
-

@@ -1,0 +1,115 @@
+.ChatWithMeButton{
+    cursor: pointer;
+    box-shadow :0px 0px 16px 6px #666 ;
+    border-radius: 50%;
+    background-image: url(C:\Users\Nedi\Desktop\Proiect\Diploma-Project\Licenta\ClientApp\src\Images\Img_doc.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 85px;
+    width: 85px;
+    height: 85px;
+    border:4px solid;
+    border-color: #2FB7D7;
+    transition: all 0.5s ease;
+   
+}
+.ChatWithMeButton:hover{
+    
+    transition: all 0.5s ease;
+    
+}
+
+.AvatarHello{
+    
+    position: absolute;
+    left: calc(-100% - 44px - 28px); 
+    top: calc(50% - 24px);
+  
+    z-index: 10000;
+    box-shadow: 0px 0px 16px 6px rgba(0, 0, 0, 0.33);
+   
+    padding: 12px 12px 12px 16px;
+    border-radius: 24px; 
+   
+    background-color: #f9f0ff;
+    color: black;
+    transition: 1s ease;
+}
+
+
+ .SupportWindow{
+       position: absolute;
+        bottom: 116px;
+        right: 24px;
+        width: 420px;
+        height: 530px;
+        max-width: calc(100% - 48px);
+        max-height: calc(100% - 48px);
+        background-color: #f9f0ff;
+        border-radius: 12px;
+        border: 2px solid #1b18d8;
+        overflow: hidden;
+        box-shadow: 0px 0px 16px 6px rgba(0, 0, 0, 0.33);
+        transition: 0.5s;
+ }
+
+ .EmailFormWindow{
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+    
+ }
+
+ .Stripe{
+    position: relative;
+    top: -45px;
+    width: 100%;
+    height: 308px;
+    background-color: #2FB7D7;
+    transform: skewY(-12deg);
+ }
+
+ .LoadingDiv{
+    position: absolute; 
+    height: 100%;
+    width: 100%; 
+    text-align: center;
+    background-color: white;
+    transition: all 0.5s ease-in;
+ }
+
+ .LoadingIcon{
+    color: #7a39e0;
+    position: absolute; 
+    top: calc(50% - 51px); 
+    left: calc(50% - 51px);  
+    font-weight: 600;
+    transition: all 0.5s ease-in;
+ }
+
+ .TopText{
+    position: relative;
+    width: 100%;
+    top:15%;
+    color: white;
+    font-size: 24px;
+    font-weight: 600; 
+ }
+.EmailInput{
+    width: 66%;
+    text-align: center;
+    outline: none;
+    padding: 12px;
+    border-radius:12px ;
+    border: 2px solid #7a39e0 ;
+
+}
+
+.BottomText{
+  position: absolute;
+  width: 100%;
+  top:60% ;
+  color: #2FB7D7; 
+  font-size:24px ;
+  font-weight: 600;
+}

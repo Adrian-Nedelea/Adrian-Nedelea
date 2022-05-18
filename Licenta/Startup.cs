@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Repositories;
 
+
+
 namespace Licenta
 {
     public class Startup
@@ -23,13 +25,26 @@ namespace Licenta
         {
             services.AddScoped<IUserRepos, UserRepositories>();
             services.AddControllersWithViews();
+            services.AddSignalR();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("ClientPermission", policy =>
+                {
+                    policy.AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .WithOrigins("http://localhost:5000")
+                        .AllowCredentials();
+                });
+            });
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -50,12 +65,14 @@ namespace Licenta
             app.UseSpaStaticFiles();
 
             app.UseRouting();
+            app.UseFileServer();
+        
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
+                  endpoints.MapControllerRoute(
+                  name: "default",
+                   pattern: "{controller}/{action=Index}/{id?}");
             });
 
             app.UseSpa(spa =>
