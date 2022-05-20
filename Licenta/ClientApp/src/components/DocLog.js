@@ -8,7 +8,7 @@ import Navbar from './Navbar/Index'
 
 async function LoginUser(credentials)
 {
-  return fetch('Http://localhost:5000/api/docs/login' ,{
+  return fetch('Http://localhost:5000/api/doc/login' ,{
     method:'POST',
     headers :{'Content-Type':'application/json'},
     body:JSON.stringify(credentials)
@@ -18,8 +18,8 @@ async function LoginUser(credentials)
 
 
 export default function LoginForm() {
-  const [Username, setUsername]=useState();
-  const [Password, setPassword]=useState();
+  const [Username, setUsername]=useState("");
+  const [Password, setPassword]=useState("");
   
   let navigate=useNavigate();
 
@@ -39,7 +39,7 @@ export default function LoginForm() {
       console.log(response);
       if(response.ok){
        
-       navigate('/UserLoggedIn');
+       navigate('/HomeDoc');
       }
       else{
         alert('Ati gresit Username-ul sau parola !!');
@@ -72,16 +72,7 @@ export default function LoginForm() {
             <LogIn size={20}/>
               Autentificare
             </Button>
-           
-            
-           
-              <p className='text-btn'>Nu aveti cont ?</p>   
-             <Button className='buttonR'   href="/SignForm">
-            <UserPlus size={20}/>
-             Inregistrare
-            </Button>
-            
-
+          
         </div>
       </Form>
     </div>

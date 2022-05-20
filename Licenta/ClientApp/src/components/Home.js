@@ -34,9 +34,7 @@ export default function Home() {
           <p style={{backgroundColor:'red', marginTop:'25rem'}}>aaaaa</p>
 
           <div className='ContainerMap' >
-           
-             <SimpleMap  />
-             <div className='Stripe2'/>
+            <SimpleMap  />
            </div>
 
         </div>

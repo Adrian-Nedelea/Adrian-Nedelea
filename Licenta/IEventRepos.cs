@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using Models;
 
 public interface IEventRepos
-{ 
-    Task InsertNewEvent(EventEntity eventEntity);
+{
+    Task InsertNewEvent(EventEntity prog);
+
+    Task<List<EventEntity>> GetAllEvent();
 }

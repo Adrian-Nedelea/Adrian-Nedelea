@@ -11,27 +11,27 @@ using Models;
 namespace Repositories
 {
 
-    public class UserRepositories : IUserRepos
+    public class DocRepositories : IDocRepos
     {
 
         private string _connectionString;
 
         private CloudTableClient _tableClient;
 
-        private CloudTable _userTable;
+        private CloudTable _docTable;
 
 
-        public UserRepositories(IConfiguration configuration)
+        public DocRepositories(IConfiguration configuration)
         {
             _connectionString = "DefaultEndpointsProtocol=https;AccountName=storagelicenta;AccountKey=SuAKdp40FK3kDB/cWtlYR+KzuiXubWjpQ3LsbCyn+4iz9TgKUZC3zgg5U6K6W5hV+ugE6TiW2sxWya4U4RjGBQ==;EndpointSuffix=core.windows.net";
 
             Task.Run(async () => { await InitializeTable(); }).GetAwaiter().GetResult();
         }
 
-        public async Task InsertNewUser(UserEntity user)
+        public async Task InsertNewDoc(DocEntity doc)
         {
-            var insertOption = TableOperation.Insert(user);
-            await _userTable.ExecuteAsync(insertOption);
+            var insertOption = TableOperation.Insert(doc);
+            await _docTable.ExecuteAsync(insertOption);
         }
 
         public async Task InitializeTable()
@@ -39,22 +39,21 @@ namespace Repositories
             var account = CloudStorageAccount.Parse(_connectionString);
             _tableClient = account.CreateCloudTableClient();
 
-            _userTable = _tableClient.GetTableReference("Users");
+            _docTable = _tableClient.GetTableReference("Doctor");
 
-            await _userTable.CreateIfNotExistsAsync();
-
+            await _docTable.CreateIfNotExistsAsync();
         }
 
-        public async Task<string> GetUserPass(string Username)
+        public async Task<string> GetDocPass(string Username)
         {
-            TableQuery<UserEntity> query = new TableQuery<UserEntity>();
+            TableQuery<DocEntity> query = new TableQuery<DocEntity>();
 
             TableContinuationToken token=null;
             do{
-                TableQuerySegment<UserEntity> resultSegment= await _userTable.ExecuteQuerySegmentedAsync(query,token);
+                TableQuerySegment<DocEntity> resultSegment= await _docTable.ExecuteQuerySegmentedAsync(query,token);
                 token=resultSegment.ContinuationToken;
 
-                foreach(UserEntity entity in resultSegment.Results)
+                foreach(DocEntity entity in resultSegment.Results)
                 {
                     if(entity.RowKey==Username)
                     return entity.Password;
@@ -63,7 +62,6 @@ namespace Repositories
             while (token!=null);
             return null;
         }
-
         
     }
 }

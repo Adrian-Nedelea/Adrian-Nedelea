@@ -25,9 +25,9 @@ const Navbar = () => {
              <Home size={20}/>
               Home
                </NavLink>
-                   <NavLink className="link"  to="/Services" >
+                   <NavLink className="link"  to="/Contact" >
                    <Info size={20}/>
-                      Servicii
+                     Programari
                    </NavLink>
                    <NavLink className="link"  to="/SignForm" >
                    <UserPlus size={20}/>

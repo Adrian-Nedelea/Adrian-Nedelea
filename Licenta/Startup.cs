@@ -24,6 +24,8 @@ namespace Licenta
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IUserRepos, UserRepositories>();
+            services.AddScoped<IEventRepos, EventRepositories>();
+            services.AddScoped<IDocRepos, DocRepositories>();
             services.AddControllersWithViews();
             services.AddSignalR();
 

@@ -12,6 +12,9 @@ import RegisterSuccess from './components/RegisterSuccess';
 import RegisterFailed from './components/RegisterFailed';
 import LoginFailed from './components/LoginFailed';
 import UserLoggedIn from './components/UserLoggedIn';
+import  TablePgr  from './components/TablePgr'
+import DocForm from './components/DocForm/DocForm';
+import HomeDoc from './components/HomeDoc';
 
 
 
@@ -36,7 +39,9 @@ export default function App () {
           <Route path="/RegisterFailed" exact element={<RegisterFailed/>}/>  
           <Route path="/LoginFailed" exact element={<LoginFailed/>} />
           <Route path="/UserLoggedIn" exact element={<UserLoggedIn/>} />
-          
+          <Route path="/TablePgr" exact element={<TablePgr/>} />
+          <Route path="/DocForm" exact element={<DocForm/>} />
+          <Route path="/HomeDoc" exact element={<HomeDoc/>} />
       </Routes>
     </>
 

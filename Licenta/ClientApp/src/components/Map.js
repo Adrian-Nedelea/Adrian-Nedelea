@@ -21,11 +21,14 @@ class SimpleMap extends Component {
   render() {
 
     const mapStyles = {
+        margin:'0px auto',
+        display:'inline-bloc',
+        position:'absolute',
         marginTop:'15px',
         marginLeft:'auto',
-        marginRight:'auto',
-        maxWidth: "80%",
-        height: "70vh",
+        maxWidth: "95%",
+        height: "95%",
+        border: '1px solid red',
       };
     return (
       // Important! Always set the container height explicitly
