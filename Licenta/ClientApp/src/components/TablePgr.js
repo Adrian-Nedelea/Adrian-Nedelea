@@ -4,9 +4,11 @@ import Axios from 'axios'
 import {Edit2,Delete, Trash} from 'react-feather'
 import { Button } from 'react-bootstrap';
 
-
+import './Form.css'
 export default function TablePgr(){
   const [data, setDate]=useState([]);
+ const [query, setQuery]=useState("");
+ 
 
   React.useEffect(() => {
     Axios.get('http://localhost:5000/api/event/getall')
@@ -14,27 +16,47 @@ export default function TablePgr(){
      }, []);
      const arr=data.map((data, index) => {
        return (
-        <tr>
-          <td>{data.partitionKey} </td>
-        <td>{data.number}</td>
-        <td>{data.rowKey}</td>
-      </tr>
+        <></>
+      //   <tr>
+        
+      //   <td>{data.partitionKey} </td>
+      //   <td>{data.number}</td>
+      //  <td>{data.rowKey}</td>
+      
+      //  </tr>
+     
        )
      })
+
+    //  console.log(data.filter(data=>data.partitionKey.toLowerCase().includes("ad")));
   return (
 
-    
-    <Table striped bordered hover>
+  <>
+   
+    <div className='Input'>
+      <span className='Span'>Cauta ziua dorita pentru a vedea ce ore sunt libere</span>
+      <input className='InputSearch' type="text" placeholder='Cauta' onChange={(e)=> setQuery(e.target.value)} />
+      </div>
+    <Table striped bordered hover className='Tabel'>
   <thead>
     <tr>
-      <th>Nume</th>
-      <th>Telefon</th>
       <th>Ziua si ora</th>
+    
     </tr>
   </thead>
   <tbody>
-     {arr} 
+      {/* {arr}   */}
+      {data.filter(data => data.rowKey.toLowerCase().includes(query)).map((data) => (
+          <tr>
+        
+  
+       <td>{data.rowKey}</td>
+       
+       </tr>
+      ))}
+ 
   </tbody>
 </Table>
+</>
   )
 }

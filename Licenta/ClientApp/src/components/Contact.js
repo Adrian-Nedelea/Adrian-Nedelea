@@ -1,11 +1,13 @@
 import React ,{useState }from 'react'
 import {Modal, Button, Form} from 'react-bootstrap'
+import { ArrowUpCircle} from 'react-feather'
 import Navbar from './Navbar/Index'
 import DatePicker from 'react-datepicker'
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import 'react-datepicker/dist/react-datepicker.css'
 import TablePgr from './TablePgr';
+import axios from 'axios'
 import './Form.css'
 
 async function AddEvent (credentials)
@@ -17,11 +19,14 @@ async function AddEvent (credentials)
    })
    .then(data =>data)
 }
+
 export default function Programari () {
   const [show, setShow] = useState(false);
   const[eventName,setEventName]=useState("");
   const [eventDate ,setEventDate]=useState("");
   const[eventNumber,setEventNumber]=useState("");
+ 
+  
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -42,6 +47,9 @@ export default function Programari () {
        alert('Sa adaugat!')
       }
     }
+
+   
+   
    
   return (
       <>
@@ -51,10 +59,10 @@ export default function Programari () {
         <div className='TopTextPgr'>  Bine ai venit <br/></div>
       
         <Button className='ButonProg' onClick={handleShow} >
-          Formular
+         Creaza o Programare
         </Button>
         <div className='StripePgr'/>
-        <div className='BottomTextPgr'>Intra <br/> pentru a crea o programare</div>
+        <div className='BottomTextPgr'><ArrowUpCircle size={40}/> <br/> Intra  pentru a crea o programare</div>
         </div>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>

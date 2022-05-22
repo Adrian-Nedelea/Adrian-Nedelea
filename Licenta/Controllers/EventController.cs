@@ -31,7 +31,7 @@ namespace Licenta.Controllers
             var prog = new EventEntity(prog_test.eventName, prog_test.eventDate);
 
             prog.Number = prog_test.eventNumber;
- 
+            prog.Id=prog_test.Id;
             try
             {
                 await _eventRepos.InsertNewEvent(prog);
@@ -49,6 +49,21 @@ namespace Licenta.Controllers
              var prog = new List<EventEntity>();
             prog= await _eventRepos.GetAllEvent();
              return Json(prog);
+        }
+
+         [HttpPost("delete")]
+        public async Task<IActionResult> DeleteEvent(Event prog_test)
+        {
+            try
+            {
+                await _eventRepos.DeleteEvent(prog_test.eventName,prog_test.eventDate);
+                return Ok("success");
+            }
+            catch (System.Exception e)
+            {
+                Console.WriteLine("{0}", e);
+                return BadRequest(new {message = "failure"});
+            }
         }
 
        

@@ -362,3 +362,42 @@ display: block;
   font-size:24px ;
   font-weight: 600;
 }
+
+.Tabel{
+    margin-top: 10px;
+    width: 80%;
+    height: 45vh;
+    margin-left: auto;
+    margin-right: auto;
+    border:3px solid #444c4e;
+
+}
+
+.Input{
+    text-align: center;
+    
+}
+
+.Span{
+
+    font-size: 20px;
+    font-weight: 600;
+    color: #531bbb;
+}
+
+.InputSearch{
+    display: block;
+    width: 40%;
+    padding: 9px 15px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #F8F8F8;
+    border-radius: 15px;
+    transition: 0.4s;
+    border-color:cyan ;
+}
+
+.InputSearch:hover{
+    background-color: #e7e7e7d2;
+    box-shadow: 0px 0px 16px 6px rgba(0, 0, 0, 0.33);
+}

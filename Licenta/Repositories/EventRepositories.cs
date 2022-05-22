@@ -61,4 +61,10 @@ namespace Repositories
             return prog;
         }
 
+        public async Task DeleteEvent (string pKey, string rKey){
+            
+           var entity = new DynamicTableEntity(pKey, rKey) {ETag = "*"};
+            await _eventTable.ExecuteAsync(TableOperation.Delete(entity)); 
+        }
+
     }}
