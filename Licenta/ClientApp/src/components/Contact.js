@@ -48,8 +48,21 @@ export default function Programari () {
       }
     }
 
+    function ValidatePhone(){
+      const ValPhone= RegExp(/(^(\+4|)?(07[0-8]{1}[0-9]{1}|02[0-9]{2}|03[0-9]{2}){1}?(\s|\.|\-)?([0-9]{3}(\s|\.|\-|)){2}$)/);
+      return ValPhone.test(eventNumber);
+    }
+    
+    function ValidateName(){
+      const ValidateName= RegExp('(?=.*[a-z])(?=.{8,})')
+   return ValidateName.test(eventName) && eventName.length !=0;
+    }
    
-   
+
+    function Valid(){
+      return ValidatePhone() && eventDate>0 && eventName>7;
+    }
+ 
    
   return (
       <>
@@ -66,27 +79,35 @@ export default function Programari () {
         </div>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Adauga o PROGRAMARE</Modal.Title>
+            <Modal.Title className='Title-Prog'>Adauga o PROGRAMARE</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form>
-            <Form.Group  controlId="eventName">
-              <Form.Label >Numele si prenumele</Form.Label>
-              <Form.Control  type="text" placeholder="Nume si prenume " 
+            <Form.Group className={ eventName.length===0 ? "Form1-Group" : ValidateName() ? "Form1-Group success" : "Form1-Group error"} controlId="FullName">
+              <Form.Label className='SubTitle' style={{marginLeft:'8.5rem'}}>Numele si prenumele</Form.Label>
+              <Form.Control className={ eventName.length===0 ? "Form1-Control " : ValidateName() ? "Form1-Control success" : "Form1-Control error" }  type="text" placeholder="Nume si prenume " 
               value={eventName}
               onChange={(e)=>setEventName(e.target.value)}  />   
+              <i className='fas fa-check-circle'></i>
+              <i className='fas fa-exclamation-circle' ></i>
+              <small >Minim 7 caractere</small>      
+       
             </Form.Group>
 
-            <Form.Group controlId='eventNumber'>
-                <Form.Label>numar de telefon</Form.Label>
-                <Form.Control value={eventNumber}  type="number" placeholder='Numarul de telefon'
-                 onChange={(e) => setEventNumber(e.target.value) }
-                  />
-              </Form.Group>
+            <Form.Group className={ eventNumber.length===0 ? "Form1-Group " :ValidatePhone() ? "Form1-Group success" : "Form1-Group error"} controlId="Phone">
+              <Form.Label className="SubTitle" style={{marginLeft:'8.5rem'}}>Numar Telefon</Form.Label>
+              <Form.Control className={eventNumber.length===0 ? "Form1-Control " :ValidatePhone() ? "Form1-Control success" : "Form1-Control error"}  type="number" placeholder="Numarul de telefon" 
+              value={eventNumber}
+              onChange={(e)=>setEventNumber(e.target.value)}/>
+               <i className='fas fa-check-circle' ></i>
+              <i className='fas fa-exclamation-circle' style={{right:'50px'}}></i>
+              <small>Incepe cu  07  si de 10 cifre</small>
+            </Form.Group>
 
                 <Form.Group controlId='eventDate'>
-                <Form.Label>Ora si ziua</Form.Label>
-                <DatePicker 
+                <Form.Label className="SubTitle"  style={{marginLeft:'10rem'}}>Ora si ziua</Form.Label>
+                <DatePicker   
+                  className='DatePick'
                     selected={eventDate}
                     onChange={(e) => setEventDate(e)}
                     showTimeSelect
@@ -103,7 +124,7 @@ export default function Programari () {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleSubmit}>
+            <Button variant="primary" onClick={handleSubmit} disabled={!Valid()}>
              Adauga
             </Button>
           </Modal.Footer>

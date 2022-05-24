@@ -15,6 +15,7 @@ import UserLoggedIn from './components/UserLoggedIn';
 import  TablePgr  from './components/TablePgr'
 import DocForm from './components/DocForm/DocForm';
 import HomeDoc from './components/HomeDoc';
+import AfterEvent from './components/DocForm/AfterEvent';
 
 
 
@@ -42,6 +43,7 @@ export default function App () {
           <Route path="/TablePgr" exact element={<TablePgr/>} />
           <Route path="/DocForm" exact element={<DocForm/>} />
           <Route path="/HomeDoc" exact element={<HomeDoc/>} />
+          <Route path="/AfterEvent" exact element={<AfterEvent/>}/>
       </Routes>
     </>
 

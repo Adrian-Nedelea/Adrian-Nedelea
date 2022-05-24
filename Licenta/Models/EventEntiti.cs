@@ -10,6 +10,5 @@ namespace Models{
         public EventEntity(){}
         public string Number {get;set;}
 
-        public int  Id {get; set;}
     }
 }

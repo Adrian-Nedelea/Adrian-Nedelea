@@ -8,6 +8,5 @@ namespace Models
         public string eventDate{get; set;}
         public string eventNumber{get;set;}
 
-        public  int Id{get; set;} 
     }
 }

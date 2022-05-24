@@ -56,7 +56,7 @@ const Navbar = () => {
 
                     <Dropdown.Menu className='Drop-content'>
                       <Link to="/" className='Item'>Home<span> |</span></Link>
-                      <Link to="/Services" className='Item'>Servicii<span> |</span></Link>
+                      <Link to="/Contact" className='Item'>Programari<span> |</span></Link>
                       <Link to="/SignForm" className='Item'>Inregistrare<span> |</span></Link>
                       <Link to="/LoginForm"  className='Item'> Pacient<span> |</span></Link>
                      <Link to="/DocLog" className='Item'> Doctor<span > |</span></Link>

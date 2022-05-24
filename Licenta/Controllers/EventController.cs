@@ -31,7 +31,7 @@ namespace Licenta.Controllers
             var prog = new EventEntity(prog_test.eventName, prog_test.eventDate);
 
             prog.Number = prog_test.eventNumber;
-            prog.Id=prog_test.Id;
+           
             try
             {
                 await _eventRepos.InsertNewEvent(prog);

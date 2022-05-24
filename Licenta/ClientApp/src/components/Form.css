@@ -363,14 +363,48 @@ display: block;
   font-weight: 600;
 }
 
-.Tabel{
-    margin-top: 10px;
-    width: 80%;
-    height: 45vh;
-    margin-left: auto;
-    margin-right: auto;
-    border:3px solid #444c4e;
+@media only screen and  ( max-width: 1024px){
+    .BottomTextPgr {
+      visibility: visible;
+      opacity: 0;
+    }
+}
 
+.Tabel{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 20px;
+    min-width: 500px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+}
+
+.Tabel thead tr {
+    background-color: #3bc9ac;
+    color: #ffffff;
+    text-align: left;
+}
+
+.Tabel th,
+.Tabel td {
+    padding: 12px 15px;
+}
+
+.Tabel tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.Tabel tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.Tabel tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.Tabel tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
 }
 
 .Input{
@@ -382,7 +416,7 @@ display: block;
 
     font-size: 20px;
     font-weight: 600;
-    color: #531bbb;
+    color: #009879;
 }
 
 .InputSearch{
@@ -401,3 +435,94 @@ display: block;
     background-color: #e7e7e7d2;
     box-shadow: 0px 0px 16px 6px rgba(0, 0, 0, 0.33);
 }
+
+
+.Title-Doc{
+    color:#888;
+    font-size: 27px;
+    font-weight: 500;
+    position: relative;
+    padding:5px;
+    text-align: center;
+}
+
+.Title-Doc::before{
+    content: '';
+    position: absolute;
+    top:40px;
+    left: 41.5rem;
+    height: 7px;
+    width:200px;
+    background-color: #2FB7D7;
+    border-radius: 5px;
+}
+
+.SubTitle{
+    color:#888;
+    font-size: 24px;
+    font-weight: 400;
+    position: relative;
+    padding:5px;
+    text-align: center;
+}
+.DatePick{
+width: 50%;
+margin-left: 6.5rem;
+border: 2px solid #2FB7D7;
+border-radius: 5px;
+}
+
+.DatePick:hover{
+    background-color: #e7e7e7d2;
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.33);
+}
+
+.Title-Prog{
+    color:#888;
+    font-size: 27px;
+    font-weight: 500;
+    position: relative;
+    padding:5px;
+    text-align: center;
+    margin-left: 3.5rem;
+}
+.Title-Prog::before{
+    content: '';
+    position: absolute;
+    top:43px;
+    left: 0;
+    height: 7px;
+    width:20rem;
+    background-image: linear-gradient(to right,#2FB7D7,#fff);
+    border-radius: 5px;
+}
+
+.SubTitle2{
+    color:#888;
+    font-size: 18px;
+    font-weight: 400;
+    position: relative;
+    text-align: center;
+    margin-left: 7rem;
+}
+
+.TitleEm{
+    color:#888;
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    margin-left: 4rem;
+}
+
+.TitleEm::before{
+        content: '';
+        position: absolute;
+        top:35px;
+        left: -5px;
+        height: 5px;
+        width:12rem;
+        background-image: linear-gradient(to right,#2FB7D7,#fff);
+        border-radius: 5px;
+    }
+
+
