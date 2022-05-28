@@ -89,7 +89,7 @@ export default function Programari () {
               value={eventName}
               onChange={(e)=>setEventName(e.target.value)}  />   
               <i className='fas fa-check-circle'></i>
-              <i className='fas fa-exclamation-circle' ></i>
+              <i className="fa-solid fa-circle-xmark" ></i>
               <small >Minim 7 caractere</small>      
        
             </Form.Group>
@@ -100,7 +100,7 @@ export default function Programari () {
               value={eventNumber}
               onChange={(e)=>setEventNumber(e.target.value)}/>
                <i className='fas fa-check-circle' ></i>
-              <i className='fas fa-exclamation-circle' style={{right:'50px'}}></i>
+              <i className="fa-solid fa-circle-xmark" style={{right:'50px'}}></i>
               <small>Incepe cu  07  si de 10 cifre</small>
             </Form.Group>
 
@@ -113,7 +113,7 @@ export default function Programari () {
                     showTimeSelect
                     minTime={setHours(setMinutes(new Date(), 0), 12)}
                     maxTime={setHours(setMinutes(new Date(), 30), 17)}
-                    dateFormat="MMMM d, yyyy h:mm aa"
+                    dateFormat= "dd-MM-yyyy h:mm aa " 
                   />
                      </Form.Group>
 
@@ -124,7 +124,7 @@ export default function Programari () {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleSubmit} disabled={!Valid()}>
+            <Button variant="primary" onClick={handleSubmit} >
              Adauga
             </Button>
           </Modal.Footer>

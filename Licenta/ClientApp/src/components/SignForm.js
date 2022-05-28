@@ -124,7 +124,7 @@ export default function SignForm() {
               value={FullName}
               onChange={(e)=>setFullName(e.target.value)}  />   
               <i className='fas fa-check-circle'></i>
-              <i className='fas fa-exclamation-circle'></i>
+              <i className="fa-solid fa-circle-xmark"></i>
               <small >Minim 7 caractere</small>      
        
             </Form.Group>
@@ -137,7 +137,7 @@ export default function SignForm() {
               value={Username}
               onChange={(e)=>setUsername(e.target.value)} />
                <i className='fas fa-check-circle'></i>
-              <i className='fas fa-exclamation-circle'></i>
+              <i className="fa-solid fa-circle-xmark"></i>
               <small>Cel putin 6 caractere</small>
             </Form.Group>
  
@@ -148,7 +148,7 @@ export default function SignForm() {
               value={city}
               onChange={(e)=>setCity(e.target.value)}/>
                <i className='fas fa-check-circle'></i>
-              <i className='fas fa-exclamation-circle'></i>
+              <i className="fa-solid fa-circle-xmark"></i>
               <small>Obligatoriu</small>
             </Form.Group>
 
@@ -159,7 +159,7 @@ export default function SignForm() {
               value={Email}
               onChange={(e)=>setEmail(e.target.value)}/>
                <i className='fas fa-check-circle'></i>
-              <i className='fas fa-exclamation-circle'></i>
+              <i className="fa-solid fa-circle-xmark"></i>
               <small>Format aaaa@gmail.com</small>
             </Form.Group>
 
@@ -169,7 +169,7 @@ export default function SignForm() {
               value={Phone}
               onChange={(e)=>setPhone(e.target.value)}/>
                <i className='fas fa-check-circle'></i>
-              <i className='fas fa-exclamation-circle'></i>
+              <i className="fa-solid fa-circle-xmark"></i>
               <small>Format ex: 07 **** ****</small>
             </Form.Group>
 
@@ -180,7 +180,7 @@ export default function SignForm() {
               autoComplete="off"
               onChange={(e)=>setPassword(e.target.value)}/>
                <i className='fas fa-check-circle'></i>
-              <i className='fas fa-exclamation-circle'></i>
+              <i className="fa-solid fa-circle-xmark"></i>
               <small>Verifica cerintele  <br/></small>
                 <label className={!ValidPassIt1() ? "label-pass" : "label-pass success"}>8 caractere </label>
                 <label className={!ValidPassIt2() ? "label-pass" : "label-pass success"}>Majuscula</label>
@@ -194,7 +194,7 @@ export default function SignForm() {
               value={ConfPassword}
               onChange={(e)=>setConfPassword(e.target.value)}/>
                <i className='fas fa-check-circle'></i>
-              <i className='fas fa-exclamation-circle'></i>
+              <i className="fa-solid fa-circle-xmark"></i>
               <small>Parola nu este la fel </small>
               
             

@@ -12,17 +12,17 @@ const EmailForm= props => {
         axios.put(
             'https://api.chatengine.io/users/',
             {username: email, email: email, secret: email},
-            {headers: {"Private-Key": process.env.REACT_APP_CE_PRIVATE_KEY}}
+            {headers: {"Private-Key": process.env.REACT_APP_STEAM_PRIVATE_KEY}}
         )
         .then(r => callback(r.data))
     }
 
     function GetOrCreateChat(callback) {
         axios.put(
-            'https://api.chatengine.io/chats/',
+            'https://dashboard.getstream.io/app/1186930/chat/',
             {usernames: [email, 'Adam La Morre'], is_direct_chat: true},
             {headers: {
-                "Project-ID": process.env.REACT_APP_CE_PRIVATE_KEY,
+                "Project-ID": process.env.REACT_APP_STEAM_PRIVATE_KEY,
                 "User-Name": email,
                 "User-Secret": email,
             }}

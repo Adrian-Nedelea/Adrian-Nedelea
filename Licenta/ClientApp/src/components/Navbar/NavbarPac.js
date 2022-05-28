@@ -21,17 +21,13 @@ const NavbarPac = () => {
       <strong style={{ fontSize: "1.8rem" }}>Ned.</strong>
               
                <NavMenu>
-               <NavLink to="/UserLoggedIn" >
+               <NavLink to="/UserLoggedIn"  className="link">
                      <Home size={20}/>
                     Acasa , sunteti logat.
                </NavLink>
-                   <NavLink to="/Contact" >
+                   <NavLink to="/Contact" className="link" >
                    <Phone size={20}/>
                   Aici se fac programari
-                   </NavLink>
-                   <NavLink to="/Chat" >
-                   <Phone size={20}/>
-                    Chat
                    </NavLink>
                </NavMenu>
 

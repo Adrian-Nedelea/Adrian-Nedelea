@@ -1,7 +1,7 @@
 import React ,{useRef} from 'react'
 import {Nav,NavLink,Bars,NavMenu,} from './Navbar'
 import {Dropdown} from 'react-bootstrap'
-import { Home,UserPlus,Info,LogIn,Phone, Mail} from 'react-feather'
+import { Home,UserPlus,Info,LogIn,Phone, Mail, User} from 'react-feather'
 import {Link} from 'react-router-dom'
 import { FaBars,FaTimes } from 'react-icons/fa'
 import { Button } from 'react-bootstrap'
@@ -18,20 +18,24 @@ const NavbarPac = () => {
   return (
     <>
       <Nav ref={navRef}>
-      <strong style={{ fontSize: "1.8rem" }}>Ned.</strong>
+      <strong style={{ fontSize: "1.8rem",marginTop:'7px',marginLeft:'-30px'}}>Ned.</strong>
               
-               <NavMenu>
-               <NavLink to="/HomeDoc" >
+               <NavMenu style={{ width:"100%" , marginLeft:'-5px'}}>
+               <NavLink to="/HomeDoc" className="link" >
                      <Home size={20}/>
                     Acasa , sunteti logat.
                </NavLink>
-                   <NavLink to="/Chat" >
-                   <Phone size={20}/>
-                    Chat
+                   <NavLink to="/DocForm" className="link" >
+                   <UserPlus size={20}/>
+                    Adauga un Doctor Nou
                    </NavLink>
-                   <NavLink to="/AfterEvent" >
+                   <NavLink to="/AfterEvent" className="link" >
                    <Mail size={20}/>
                       Trimite email cu rezultatele
+                   </NavLink>
+                   <NavLink to="/RezultatDb" className="link" >
+                   <Mail size={20}/>
+                      Rezultatul catre DB
                    </NavLink>
                </NavMenu>
 
@@ -44,7 +48,9 @@ const NavbarPac = () => {
                     <Dropdown.Menu className='Drop-content'>
                       <Link to="/HomeDoc" className='Item'>Acasa , sunteti autetificat</Link>
                       
-                      <Link to='/DocForm' className='Item'>Formularul pentru pacient</Link>
+                      <Link to='/DocForm' className='Item'>Formularul pentru un medic nou</Link>
+                      <Link to="/AfterEvent" className='Item'> Email pentru Rezultate</Link>
+                      <Link to="/RezultatDb" className='Item'> Rezultat salvat in Db</Link>
                       </Dropdown.Menu>
                   </Dropdown>       
 

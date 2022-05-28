@@ -3,6 +3,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import {User,LogIn} from 'react-feather'
+import NavbarDoc from '../Navbar/NavBarDoc'
 
 
 
@@ -100,14 +101,15 @@ export default function DocForm() {
  
   return (
     <>
-    <div className='Back'>
+    <NavbarDoc/>
+    <div className='Back' style={{marginTop:'-4.5rem'}}>
     <div className='Formular'>
       <Form onSubmit={handleSubmit} className='Form1'>
         <div className='Form1-inner'>
         <div className='Title'>Creaza Contul</div>
       
             <Form.Group className={ Name.length===0 ? "Form1-Group" : ValidateName() ? "Form1-Group success" : "Form1-Group error"} controlId="Name">
-              <Form.Label className='label'>Numele si prenumele</Form.Label>
+              <Form.Label className='SubTitle'>Numele si prenumele</Form.Label>
               <Form.Control className={ Name.length===0 ? "Form1-Control " : ValidateName() ? "Form1-Control success" : "Form1-Control error" }  type="text" placeholder="Nume si prenume " 
               value={Name}
               onChange={(e)=>setName(e.target.value)}  />   
@@ -119,7 +121,7 @@ export default function DocForm() {
             
 
             <Form.Group className={ Username.length===0 ? "Form1-Group " :ValidateUsername() ? "Form1-Group success" : "Form1-Group error"} controlId="Username">
-              <Form.Label className='label'>Username</Form.Label>
+              <Form.Label className='SubTitle'>Username</Form.Label>
               <Form.Control className={Username.length===0 ? "Form1-Control " :ValidateUsername() ? "Form1-Control success" : "Form1-Control error"}  type="text" placeholder="Enter Username"
           
               value={Username}
@@ -131,7 +133,7 @@ export default function DocForm() {
  
 
             <Form.Group className={ Email.length===0 ? "Form1-Group " :ValidateEmail() ? "Form1-Group success" : "Form1-Group error"} controlId="Email">
-              <Form.Label className='label'>Adresa Email</Form.Label>
+              <Form.Label className='SubTitle'>Adresa Email</Form.Label>
               <Form.Control className={Email.length===0 ? "Form1-Control " :ValidateEmail() ? "Form1-Control success" : "Form1-Control error"}  type="email" placeholder="Adresa de email"
               
               value={Email}
@@ -142,7 +144,7 @@ export default function DocForm() {
             </Form.Group>
 
             <Form.Group className={ Password.length===0 ? "Form1-Group " :!ValidatePassword() ? "Form1-Group error" : " Form1-Group success"} controlId="Password">
-              <Form.Label className='label'>Parola</Form.Label>
+              <Form.Label className='SubTitle'>Parola</Form.Label>
               <Form.Control className={Password.length===0 ? "Form1-Control " :!ValidatePassword() ? "Form1-Control error" : " Form1-Control success"}  type="password" placeholder="Parola" 
               value={Password}
               autoComplete="off"
@@ -157,7 +159,7 @@ export default function DocForm() {
             </Form.Group>
 
             <Form.Group className={ ConfPassword.length===0 ? "Form1-Group " :!ValidConfPass() ? "Form1-Group error" : " Form1-Group success"} controlId="ConfPassword">
-              <Form.Label className='label'>Confirma Parola</Form.Label>
+              <Form.Label className='SubTitle'>Confirma Parola</Form.Label>
               <Form.Control className={ConfPassword.length===0 ? "Form1-Control " :!ValidConfPass() ? "Form1-Control error" : " Form1-Control success"} type="password" placeholder="Confirma Parola" 
               value={ConfPassword}
               onChange={(e)=>setConfPassword(e.target.value)}/>

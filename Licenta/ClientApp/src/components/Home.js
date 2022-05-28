@@ -33,7 +33,7 @@ export default function Home() {
         <h2 className='titlul'>Clinica Med</h2>
           <p style={{backgroundColor:'red', marginTop:'25rem'}}>aaaaa</p>
 
-          <div className='ContainerMap' >
+          <div className='ContainerMap' style={{marginLeft:'15rem'}} >
             <SimpleMap  />
            </div>
 

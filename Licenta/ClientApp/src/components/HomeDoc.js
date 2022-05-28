@@ -9,7 +9,6 @@ function HomeDoc() {
     <>
     <NavbarDoc/>
     <div className='Title-Doc' >Bine Ati venit </div>
-
     <div>
         <TablePgrDoc/>
     </div>
