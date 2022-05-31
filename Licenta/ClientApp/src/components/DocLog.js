@@ -18,14 +18,14 @@ async function LoginUser(credentials)
 
 
 export default function LoginForm() {
-  const [Username, setUsername]=useState("");
+  const [UsernameDoc, setUsernameDoc]=useState("");
   const [Password, setPassword]=useState("");
   
   let navigate=useNavigate();
 
     function ValidateForm ()
     {
-      return Username.length > 0 && Password.length > 0 ;
+      return UsernameDoc.length > 0 && Password.length > 0 ;
     }
   
     
@@ -33,7 +33,7 @@ export default function LoginForm() {
       e.preventDefault();
   
       const response =await LoginUser({
-        Username,
+        UsernameDoc,
         Password
       });
       console.log(response);
@@ -56,8 +56,8 @@ export default function LoginForm() {
             <Form.Group className="Form1-Group" controlId="Username">
               <Form.Label className='label'>Username</Form.Label>
               <Form.Control className='Form1-Control'  type="text" placeholder="Enter Username"
-                value={Username}
-                onChange={(e)=>setUsername(e.target.value)} /> 
+                value={UsernameDoc}
+                onChange={(e)=>setUsernameDoc(e.target.value)} /> 
             </Form.Group>
 
             <Form.Group className="Form1-Group " controlId="Password">

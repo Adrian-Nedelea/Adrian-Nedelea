@@ -531,3 +531,75 @@ border-radius: 5px;
     }
 
 
+
+
+   .TextRes{
+      padding: 5px;
+      display: flex;
+   }
+
+
+@media (min-width: 1200px) {
+    .responsive-font-example {
+      font-size: 80px;
+    }
+  }
+  
+  @media (max-width: 1199.98px) {
+    .responsive-font-example {
+      font-size: 30px;
+    }
+  }
+
+  .Text-Li{
+    font-size: 20px;
+    line-height: 1.45;
+    color: #15283f;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .SubTitle2-li{
+    color:#888;
+    font-size: 22px;
+    font-weight: 400;
+    position: relative;
+    text-align: center;
+    margin-left: 7rem;
+}
+.ContainerMap21{
+    border:4px solid #2FB7D7;
+    border-radius: 15px;
+   max-width: 75%; 
+   min-width: 250px;
+  max-height: 70vh;
+  min-height: 20vh;
+  padding: 15px;
+   display: flex;
+   text-align:center;
+   margin-top: 175vh;
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 50vh;
+   }
+
+   .Title-SendEm{
+    color:#888;
+    font-size: 27px;
+    font-weight: 500;
+    position: relative;
+    padding:5px;
+    text-align: center;
+    margin-left: 4.7rem;
+}
+.Title-SendEm::before{
+    content: '';
+    position: absolute;
+    top:43px;
+    left: 0;
+    height: 7px;
+    width:20rem;
+    background-image: linear-gradient(to right,#2FB7D7,#fff);
+    border-radius: 5px;
+}

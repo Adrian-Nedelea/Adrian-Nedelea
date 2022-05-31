@@ -44,7 +44,8 @@ export default function Programari () {
        alert('Nu s-a adaugat!');
       }
       else{
-       alert('Sa adaugat!')
+       alert('Sa adaugat!dati refres la pagina pentru a putea verifica');
+
       }
     }
 

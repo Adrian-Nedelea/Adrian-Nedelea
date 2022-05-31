@@ -28,7 +28,7 @@ namespace Licenta.Controllers
 
         public async Task<IActionResult> Post([FromBody] DocRegister user_test)
         {
-            var user = new DocEntity(user_test.Name, user_test.Username);
+            var user = new DocEntity(user_test.Name, user_test.UsernameDoc);
             user.Email = user_test.Email;
             user.Password = user_test.Password;
 
@@ -47,7 +47,7 @@ namespace Licenta.Controllers
            [HttpPost("login")]
         public async Task<IActionResult> Post(DocLogin doc_login)
         {
-            string _getpass= await _docRepos.GetDocPass(doc_login.Username);
+            string _getpass= await _docRepos.GetDocPass(doc_login.UsernameDoc);
             if(_getpass == null)
                 return BadRequest(new{message ="Login failed!"});
                 else

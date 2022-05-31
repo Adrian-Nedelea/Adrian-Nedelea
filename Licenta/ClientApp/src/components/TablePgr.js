@@ -28,6 +28,7 @@ export default function TablePgr(){
     <Table striped bordered hover className='Tabel'>
   <thead>
     <tr>
+      <th>Numele</th>
       <th>Ziua si ora</th>
     
     </tr>
@@ -36,6 +37,7 @@ export default function TablePgr(){
      
       {data.filter(data => data.rowKey.toLowerCase().includes(query)).map((data) => (
           <tr>
+        <td >{data.partitionKey} </td>
        <td>{data.rowKey}</td>
        </tr>
       ))}

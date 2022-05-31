@@ -24,15 +24,18 @@ namespace Licenta.Controllers
         }
 
 
-        [HttpPost("addEvent")]
+        [HttpPost("addRezultat")]
 
         public async Task<IActionResult> Post([FromBody]  Rezultat rezultat_test)
         {
             var rezultat = new RezultatEntity(rezultat_test.Nume, rezultat_test.Data);
 
             rezultat.CNP = rezultat_test.CNP;
+
             rezultat.Varsta=rezultat_test.Varsta;
+
             rezultat.Problema=rezultat_test.Problema;
+
             rezultat.Tratament=rezultat_test.Tratament;
            
             try
@@ -45,6 +48,14 @@ namespace Licenta.Controllers
                 Console.WriteLine("Error:{0}", e);
                 return BadRequest(new { message = "Failure" });
             }
+        }
+
+        [HttpGet("getData")]
+        public async Task<JsonResult> GetAllEvent()
+        {
+             var rezultat = new List<RezultatEntity>();
+            rezultat= await _rezultatRepos.GetAllRezult();
+             return Json(rezultat);
         }
       
 

@@ -27,15 +27,13 @@ export default function Home() {
   },[ref])
   return (
     <>
+    <div className='root'>
     <Navbar/>
     <Slider/>
         <div className='Home-Title'>
-        <h2 className='titlul'>Clinica Med</h2>
-          <p style={{backgroundColor:'red', marginTop:'25rem'}}>aaaaa</p>
-
-          <div className='ContainerMap' style={{marginLeft:'15rem'}} >
+        <h2 className='titlul'>Clinica Ned</h2>
+       
             <SimpleMap  />
-           </div>
 
         </div>
     
@@ -53,10 +51,18 @@ export default function Home() {
 
         
 
-       
+       <div  className='ContainerMap21'> 
+        <h1 className="responsive-font-example">Posibile <br/> întrebări</h1> 
+        <ol>
+          <li className='SubTitle2-li'>Cum creez o programare?</li>
+            <p className='Text-Li' >Intrați în secțiunea programări ce se gasește in partea de sus si urmați instrucțiunile.</p>
+          <li className='SubTitle2-li' >Cum pot contacta clinica ?</li>
+            <p className='Text-Li'>Informațiile de contact se gasesc în partea de jos si puteți trimite un mail rapid apăsând pe imaginea cu plic din sectiunea contact . </p>
+        </ol>
+      </div>
   
     <Footer style={{flexSrink:'0'}}/>
-
+    </div>
     </> 
   )
 }

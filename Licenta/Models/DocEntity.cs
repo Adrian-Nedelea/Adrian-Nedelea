@@ -4,10 +4,10 @@ namespace Models
 {
     public class DocEntity : TableEntity
     {
-        public DocEntity(string Name, string Username)
+        public DocEntity(string Name, string UsernameDoc)
         {
             this.PartitionKey = Name;
-            this.RowKey = Username;
+            this.RowKey = UsernameDoc;
         }
 
         public DocEntity() { }

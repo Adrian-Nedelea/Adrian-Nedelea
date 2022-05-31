@@ -23,8 +23,9 @@ class SimpleMap extends Component {
     const mapStyles = {
         margin:'0px auto',
         display:'inline-bloc',
+        borderRadius:'50px',
         position:'absolute',
-        marginTop:'15px',
+        marginTop:'30rem',
         marginLeft:'auto',
         maxWidth: "95%",
         height: "95%",

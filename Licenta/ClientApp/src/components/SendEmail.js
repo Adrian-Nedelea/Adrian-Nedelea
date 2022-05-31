@@ -1,51 +1,47 @@
 import React, {useState} from 'react'
-import {Button ,Form} from 'react-bootstrap'
 import emailjs from 'emailjs-com'
 import NavbarDoc from '../Navbar/NavBarDoc'
 import {Send} from 'react-feather'
+import {Modal, Button, Form} from 'react-bootstrap'
 
 
 
-
-function AfterEvent() {
+export default function SendEmail() {
 
   const [Email,setEmail]=useState("");
   const [Nume ,setNume]=useState("");
   const [date,setDate]=useState("");
   const[ Subject,setSubject]=useState("");
 
- 
-
-    function ValidateName(){
-      return Nume.length>3;
-    }
-  function ValidateEmail(){
-    const ValEmail= RegExp(/^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/);
-   return ValEmail.test(Email);
-  }
-function Valid(){
-  return ValidateEmail && Nume.length>3 && date.length>0 && Subject.length>0 ;
-}
-
-
-
   function SendEmail(e) {
     e.preventDefault();
 
     emailjs.sendForm("gmail", 'template_yi7wuqg',e.target, 'aZi8JVslN8HdsCSSB')
     .then((result) => {
-      alert("Mesajul a fost trimis cu success");
+      console.log(result.text);
     }, (error) => {
-      alert("Mesajul nu a fost trimis");
+      console.log(error.text);
     });
   }
-  return (
-    < >
    
-    <NavbarDoc/>
-  
-<div className='Login' style={{marginTop:'75px'}}>
-      <Form onSubmit={SendEmail}  className="Form1" >
+  return (
+      <>
+        <div className='ProgContainer'>
+        
+        <div className='TopTextPgr'>  Bine ai venit <br/></div>
+      
+        <Button className='ButonProg' onClick={handleShow} >
+         Creaza o Programare
+        </Button>
+        <div className='StripePgr'/>
+        <div className='BottomTextPgr'><ArrowUpCircle size={40}/> <br/> Intra  pentru a crea o programare</div>
+        </div>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title className='Title-Prog'>Adauga o PROGRAMARE</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+          <Form onSubmit={SendEmail}  className="Form1" >
         <div className='Form1-inner'>
         <div className='Title'>Email Rezultate</div>
         <Form.Group className={  Nume.length===0 ? "Form1-Group " :ValidateName() ? "Form1-Group success" : "Form1-Group error"} controlId="Nume">
@@ -89,9 +85,18 @@ function Valid(){
             </Button>
         </div>
       </Form>
-      </div>
-    </>
-  )
-}
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={handleSubmit} >
+             Adauga
+            </Button>
+          </Modal.Footer>
+        </Modal>
 
-export default AfterEvent
+       
+      </>
+    );
+}

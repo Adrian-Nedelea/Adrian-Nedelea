@@ -4,4 +4,6 @@ using Models;
 
 public interface IRezultatRepos {
     Task InsertRezultat (RezultatEntity rezultat);
+
+    Task<List<RezultatEntity>> GetAllRezult();
 }

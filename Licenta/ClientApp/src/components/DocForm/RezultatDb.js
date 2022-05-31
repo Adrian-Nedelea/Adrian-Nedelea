@@ -1,18 +1,19 @@
 import React, {useState} from 'react'
 import {Button ,Form,} from 'react-bootstrap'
-import emailjs from 'emailjs-com'
 import NavbarDoc from '../Navbar/NavBarDoc'
-import {Send} from 'react-feather'
+import {Send,ArrowDownCircle} from 'react-feather'
+import TableRezBd from '../TableRezBd'
 
 async function saveRez (credentials)
 {
-   return fetch('Http://localhost:5000/api/rezultat', {
+   return fetch('Http://localhost:5000/api/rezultat/addRezultat', {
      method:'POST',
      headers:{'Content-Type':'application/json'},
      body:JSON.stringify(credentials)
    })
    .then(data =>data)
 }
+
 
 
 function AfterEvent() {
@@ -22,10 +23,13 @@ function AfterEvent() {
   const [Data,setData]=useState("");
   const [CNP,setCNP]=useState("");
   const [Problema, setProblema]=useState("");
-  const [Medicatie,setMedicatie]=useState("");
+  const [Tratament,setTratament]=useState("");
   const [Varsta,setVarsta]=useState("");
  
 
+  function Valid (){
+    return Nume.length>0 && Data.length>0 && CNP.length===13 && Problema.length && Tratament.length>0 && Varsta.length>0;
+  }
 
 const handleSubmit = async e =>{
   e.preventDefault();
@@ -36,7 +40,7 @@ const handleSubmit = async e =>{
     CNP,
     Varsta,
     Problema,
-    Medicatie,
+    Tratament,
    
   });
   console.log(response);
@@ -53,7 +57,7 @@ const handleSubmit = async e =>{
     <>
     <NavbarDoc/>
   
-<div className='Login' style={{marginTop:'14rem'}}>
+<div className='Login' style={{marginTop:'5rem'}}>
       <Form  onSubmit={handleSubmit} className="Form1">
         <div className='Form1-inner'>
         <div className='Title'>Trimite la baza de date</div>
@@ -93,18 +97,20 @@ const handleSubmit = async e =>{
             <Form.Group className="Form1-Group" controlId="Tratament">
               <Form.Label className="SubTitle" >Tratament</Form.Label>
               <Form.Control className='Form1-Control'  placeholder='Tratament
-              '  value={Medicatie}  onChange={(e)=> setMedicatie(e.target.value)}/>
+              '  value={Tratament}  onChange={(e)=> setTratament(e.target.value)}/>
             </Form.Group>
 
          
-            <Button className='button' type="submit" >
+            <Button className='button' type="submit" disabled={!Valid()} >
               <Send size={20}/>
               Trimite
             </Button>
         </div>
       </Form>
       </div>
-
+     <div style={{marginTop:'25vh'}}>
+       <TableRezBd/>
+     </div>
 
     </>
   )

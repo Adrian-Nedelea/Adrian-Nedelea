@@ -43,6 +43,22 @@ namespace Repositories
             await _rezultatTable.CreateIfNotExistsAsync();
 
         }
+        public async Task<List<RezultatEntity>> GetAllRezult(){
+
+            var prog = new List<RezultatEntity>();
+
+            TableQuery<RezultatEntity> query= new TableQuery<RezultatEntity>();
+            
+            TableContinuationToken token= null;
+            do
+            {
+            TableQuerySegment<RezultatEntity> resultSegment = await _rezultatTable.ExecuteQuerySegmentedAsync(query, token);
+                token = resultSegment.ContinuationToken;
+
+               prog.AddRange(resultSegment.Results);
+            } while(token != null);
+            return prog;
+        }
     }
 
 }

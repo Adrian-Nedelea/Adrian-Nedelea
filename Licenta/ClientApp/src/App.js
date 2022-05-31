@@ -18,6 +18,7 @@ import HomeDoc from './components/HomeDoc';
 import AfterEvent from './components/DocForm/AfterEvent';
 
 import RezultatDb from './components/DocForm/RezultatDb';
+import ChatEn from './components/SupportWindow/ChatEn';
 
 
 
@@ -47,6 +48,7 @@ export default function App () {
           <Route path="/HomeDoc" exact element={<HomeDoc/>} />
           <Route path="/AfterEvent" exact element={<AfterEvent/>}/>
           <Route path="/RezultatDb" exact element={<RezultatDb/>} />
+          <Route path="/ChatEn" exact element={<ChatEn/>} />
       </Routes>
     </>
 

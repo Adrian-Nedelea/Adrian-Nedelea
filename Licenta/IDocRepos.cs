@@ -5,6 +5,6 @@ using Models;
 public interface IDocRepos
 {
     Task InsertNewDoc(DocEntity doc);
-    Task<string> GetDocPass(string Username);
+    Task<string> GetDocPass(string UsernameDoc);
     
 }

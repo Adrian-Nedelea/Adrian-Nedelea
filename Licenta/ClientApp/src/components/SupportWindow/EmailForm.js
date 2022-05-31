@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { LoadingOutlined } from '@ant-design/icons'
 import Avatar from '../Avatar'
 import '../Chat.css'
@@ -8,44 +8,47 @@ const EmailForm= props => {
     const [email ,setEmail]= useState('');
     const [loading ,setLoading]=useState(false)
 
-    function GetOrCreateUser(callback) {
+    function getOrCreateUser(callback){
         axios.put(
             'https://api.chatengine.io/users/',
-            {username: email, email: email, secret: email},
-            {headers: {"Private-Key": process.env.REACT_APP_STEAM_PRIVATE_KEY}}
+                {
+                    "username": email,
+                    "secret": email,
+                    "email":email,
+                },
+                {headers: { "Private-key":process.env.REACT_APP_CE_PRIVATE_KEY}}
         )
-        .then(r => callback(r.data))
-    }
-
-    function GetOrCreateChat(callback) {
-        axios.put(
-            'https://dashboard.getstream.io/app/1186930/chat/',
-            {usernames: [email, 'Adam La Morre'], is_direct_chat: true},
-            {headers: {
-                "Project-ID": process.env.REACT_APP_STEAM_PRIVATE_KEY,
-                "User-Name": email,
-                "User-Secret": email,
-            }}
-        )
-        .then(r => callback(r.data))
-    }
-
-    function handleSubmit(event) {
-        event.preventDefault();
-        setLoading(true);
-        console.log('Sending email', email);
+        .then(response=>callback(response.date)).catch(err => console.log(err));
         
-        GetOrCreateUser(
-            user =>{
-                props.setUser(user)
-                GetOrCreateChat(
-                    
-                    chat => props.setChat(chat)
+
+    }
+    function getOrCreateChat(callback){
+        axios.put(
+            'https://api.chatengine.io/chats/',
+            {
+                "usernames": ["Tzacalie", email],
+                
+                "is_direct_chat": true
+            },
+            {headers: { "Private-key":process.env.REACT_APP_CE_PRIVATE_KEY}}
+
+        ).then(response=> callback(response.date)).catch(err => console.log(err));
+    }
+   
+    function handleSubmit(event){
+        event.preventDefault();
+        setLoading(true)
+        console.log('sending email' ,email)
+
+        getOrCreateUser(
+            user=>{
+                getOrCreateChat(
+                    chat => console.log('sucess', chat)
                 )
             }
         )
-        
     }
+    
     return (
         <div className='EmailFormWindow' style={{height:'100%',opacity:'1'}}>
             <div style={{height:'0px'}}>
@@ -74,9 +77,9 @@ const EmailForm= props => {
                         Bine ai venit <br/>
                         </div>
 
-                    <form onSubmit={e => handleSubmit(e)}
+                    <form onSubmit={ e =>handleSubmit(e)}
                     style={{position:'relative',width:'100%', top:'19.75%'}}>
-                        <input  className='EmailInput' onChange={e =>setEmail(e.target.value)}
+                        <input  className='EmailInput' value={email} onChange={e =>setEmail(e.target.value)}
                         placeholder="Email"></input>
                     </form> 
 

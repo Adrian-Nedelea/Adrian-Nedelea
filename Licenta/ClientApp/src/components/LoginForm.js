@@ -17,7 +17,7 @@ async function LoginUser(credentials)
 }
 
 
-export default function LoginForm() {
+export default function LoginForm(props) {
   const [Username, setUsername]=useState();
   const [Password, setPassword]=useState();
   let navigate=useNavigate();

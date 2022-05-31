@@ -20,22 +20,22 @@ async function registerDoc (credentials)
 export default function DocForm() {
   const [Name ,setName]=useState("");
   const [Email,setEmail]=useState("");
-  const [Username,setUsername]=useState("");
+  const [UsernameDoc,setUsernameDoc]=useState("");
   const [Password, setPassword]=useState("");
   const [ConfPassword, setConfPassword]=useState("");
  
  let navigate=useNavigate();
 
   function validateForm (){
-    return  ValidateName() && ValidateUsername()  && ValidateEmail()  && ValidatePassword() && ValidConfPass();
+    return  ValidateName() && ValidateUsernameDoc()  && ValidateEmail()  && ValidatePassword() && ValidConfPass();
   }
 
   function ValidateName(){
     const ValName= RegExp('(?=.*[a-z])(?=.{8,})')
    return ValName.test(Name) && Name.length !=0;
   }
-  function ValidateUsername(){
-    return Username.length>5;
+  function ValidateUsernameDoc(){
+    return UsernameDoc.length>5;
    }
  
 
@@ -86,7 +86,7 @@ export default function DocForm() {
     const response =await registerDoc({
       Name,
       Email,
-      Username,
+      UsernameDoc,
       Password,
      
     });
@@ -120,12 +120,12 @@ export default function DocForm() {
             </Form.Group>
             
 
-            <Form.Group className={ Username.length===0 ? "Form1-Group " :ValidateUsername() ? "Form1-Group success" : "Form1-Group error"} controlId="Username">
+            <Form.Group className={ UsernameDoc.length===0 ? "Form1-Group " :ValidateUsernameDoc() ? "Form1-Group success" : "Form1-Group error"} controlId="Username">
               <Form.Label className='SubTitle'>Username</Form.Label>
-              <Form.Control className={Username.length===0 ? "Form1-Control " :ValidateUsername() ? "Form1-Control success" : "Form1-Control error"}  type="text" placeholder="Enter Username"
+              <Form.Control className={UsernameDoc.length===0 ? "Form1-Control " :ValidateUsernameDoc() ? "Form1-Control success" : "Form1-Control error"}  type="text" placeholder="Enter Username"
           
-              value={Username}
-              onChange={(e)=>setUsername(e.target.value)} />
+              value={UsernameDoc}
+              onChange={(e)=>setUsernameDoc(e.target.value)} />
                <i className='fas fa-check-circle'></i>
               <i className='fas fa-exclamation-circle'></i>
               <small>Cel putin 6 caractere</small>
@@ -180,7 +180,7 @@ export default function DocForm() {
 
             <div className='Btn-center'>
               <p className='text-btn'>Aveti deja un cont ?</p>   
-             <Button className='buttonR'   href="/LoginForm">
+             <Button className='buttonR'   href="/DocLog">
             <User size={20}/>
              Autentificare
             </Button>
