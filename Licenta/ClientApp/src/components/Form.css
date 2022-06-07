@@ -296,13 +296,13 @@ display: block;
  }
 
  .ContainerMap{
-     border:4px solid #2FB7D7;
-     border-radius: 15px;
-    width: 75%; 
-    height: 75vh;
-    position:relative;
-    text-align:center;
-    margin-bottom: 30vh;
+    border:4px solid #2FB7D7;
+    border-radius: 15px;
+   width: 75%; 
+   height: 75vh;
+   position:relative;
+   text-align:center;
+   margin-bottom: 30vh;
  }
 
  .Stripe2{
@@ -381,6 +381,9 @@ display: block;
     font-size: 20px;
     min-width: 500px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
 
 }
 
@@ -394,6 +397,8 @@ display: block;
 .Tabel td {
     padding: 12px 15px;
 }
+
+tr:nth-child(odd) {background-color: #f2f2f2;}
 
 .Tabel tbody tr {
     border-bottom: 1px solid #dddddd;
@@ -561,7 +566,7 @@ border-radius: 5px;
   }
 
   .SubTitle2-li{
-    color:#888;
+    color:#000000;
     font-size: 22px;
     font-weight: 400;
     position: relative;
@@ -578,10 +583,10 @@ border-radius: 5px;
   padding: 15px;
    display: flex;
    text-align:center;
-   margin-top: 175vh;
+   margin-top: 140vh;
    margin-left: auto;
    margin-right: auto;
-   margin-bottom: 50vh;
+   margin-bottom: 15vh;
    }
 
    .Title-SendEm{
@@ -602,4 +607,106 @@ border-radius: 5px;
     width:20rem;
     background-image: linear-gradient(to right,#2FB7D7,#fff);
     border-radius: 5px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+.star{
+    cursor: pointer;
+    transition: color 200ms;
+}
+
+.Titlu-Fain{
+     color: #666;
+    font-size: 62px;
+    font-weight: 800; 
+    line-height: 72px;
+    text-align: center;  
+    margin-top: 58vh;
+}
+
+.ReviewContainer{
+    border:4px solid #2FB7D7;
+     border-radius: 15px;
+    width: 35%; 
+    height: 15vh;
+    position:relative;
+    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Stars{
+    text-align: center;
+}
+
+.TitleRev{
+    color:#888;
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    padding:5px;
+}
+
+.Title-Rev{
+    color:#888;
+    font-size: 27px;
+    font-weight: 500;
+    position: relative;
+    padding:5px;
+    text-align: center;
+    margin-left: 8.5rem;
+}
+.Title-Rev::before{
+    content: '';
+    position: absolute;
+    top:43px;
+    left: -15px;
+    height: 7px;
+    width:14rem;
+    background-image: linear-gradient(to right,#2FB7D7,#fff);
+    border-radius: 5px;
+}
+
+.Table-Rev{
+    border-collapse: collapse;
+    font-size: 20px;
+    min-width: 500px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    max-width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: none;
+    margin-bottom: 50vh;
+}
+
+.Table-Rev thead tr {
+    background-color: #3bc9ac;
+    color: #ffffff;
+    text-align: left;
+}
+
+.Tabel-Rev  th,
+.Tabel-Rev  td {
+    padding: 12px 15px;
+}
+
+tr:nth-child(odd) {background-color: #f2f2f2;}
+
+.Tabel-Rev  tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.Tabel-Rev  tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.Tabel-Rev  tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.Tabel-Rev  tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
 }

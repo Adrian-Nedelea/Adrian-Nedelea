@@ -8,6 +8,8 @@ import Avatar from './Avatar'
 import SupportWindow from "./SupportWindow/SupportWind";
 import SimpleMap from './Map';
 import './Chat.css'
+import Review from './Review';
+import TableReview from './TabelReview'
 
 
 export default function Home() {
@@ -31,13 +33,13 @@ export default function Home() {
     <Navbar/>
     <Slider/>
         <div className='Home-Title'>
-        <h2 className='titlul'>Clinica Ned</h2>
-       
-            <SimpleMap  />
+            <p className='Titlu-Fain'> Clinica NedLife </p>
 
+              <SimpleMap />
+            
         </div>
     
-        <div ref={ref}>
+        {/* <div ref={ref}>
         <SupportWindow
          style={{ position: 'fixed', top:"25rem" ,right:"24px"}}
         visible={visible}
@@ -47,11 +49,11 @@ export default function Home() {
         onClick={() => setVisible(true)}
         style={{ position: 'fixed', top:"33rem" ,right:"24px"}}
          />
-        </div>
+        </div> */}
 
         
 
-       <div  className='ContainerMap21'> 
+       <div  className='ContainerMap21' style={{backgroundColor:"#b5cad3"}}> 
         <h1 className="responsive-font-example">Posibile <br/> întrebări</h1> 
         <ol>
           <li className='SubTitle2-li'>Cum creez o programare?</li>
@@ -60,6 +62,12 @@ export default function Home() {
             <p className='Text-Li'>Informațiile de contact se gasesc în partea de jos si puteți trimite un mail rapid apăsând pe imaginea cu plic din sectiunea contact . </p>
         </ol>
       </div>
+
+      <div className='ReviewContainer'>
+        <p className='SubTitle'>Lasa un review <Review/> </p>
+        
+      </div>
+      <TableReview/>
   
     <Footer style={{flexSrink:'0'}}/>
     </div>

@@ -19,6 +19,8 @@ import AfterEvent from './components/DocForm/AfterEvent';
 
 import RezultatDb from './components/DocForm/RezultatDb';
 import ChatEn from './components/SupportWindow/ChatEn';
+import Review from './components/Review';
+import TableReview from './components/TabelReview'
 
 
 
@@ -49,6 +51,8 @@ export default function App () {
           <Route path="/AfterEvent" exact element={<AfterEvent/>}/>
           <Route path="/RezultatDb" exact element={<RezultatDb/>} />
           <Route path="/ChatEn" exact element={<ChatEn/>} />
+          <Route path="/Review" exact element={<Review/>}/>
+          <Route path="/TableReview" exact element={<TableReview/>} />
       </Routes>
     </>
 

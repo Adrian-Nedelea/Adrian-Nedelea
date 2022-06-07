@@ -10,26 +10,26 @@ using Models;
 namespace Repositories
 {
 
-    public class EventRepositories : IEventRepos
+    public class ReviewRepositories : IReviewRepos
     {
 
         private string _connectionString;
 
         private CloudTableClient _tableClient;
 
-        private CloudTable _eventTable;
+        private CloudTable _reviewTable;
 
 
-        public EventRepositories(IConfiguration configuration)
+        public ReviewRepositories(IConfiguration configuration)
         {
             _connectionString = "DefaultEndpointsProtocol=https;AccountName=licentaceva;AccountKey=0HrYuEIpQ/EMeOzRUq++hBKGBX7PL2fKiUa4aC9RK3q+SQhKnkDG4+CPe6vNEZLjlD9b9a8AfGjH+AStVDuQsg==;EndpointSuffix=core.windows.net";
             Task.Run(async () => { await InitializeTable(); }).GetAwaiter().GetResult();
         }
 
-        public async Task InsertNewEvent(EventEntity prog)
+        public async Task InsertNewReview(ReviewEntity prog)
         {
             var insertOption = TableOperation.Insert(prog);
-            await _eventTable.ExecuteAsync(insertOption);
+            await _reviewTable.ExecuteAsync(insertOption);
         }
 
         public async Task InitializeTable()
@@ -37,33 +37,27 @@ namespace Repositories
             var account = CloudStorageAccount.Parse(_connectionString);
             _tableClient = account.CreateCloudTableClient();
 
-            _eventTable = _tableClient.GetTableReference("Events");
+            _reviewTable = _tableClient.GetTableReference("Reviews");
 
-            await _eventTable.CreateIfNotExistsAsync();
+            await _reviewTable.CreateIfNotExistsAsync();
 
         }
 
-        public async Task<List<EventEntity>> GetAllEvent(){
+        public async Task<List<ReviewEntity>> GetAllReview(){
 
-            var prog = new List<EventEntity>();
+            var prog = new List<ReviewEntity>();
 
-            TableQuery<EventEntity> query= new TableQuery<EventEntity>();
+            TableQuery<ReviewEntity> query= new TableQuery<ReviewEntity>();
             
             TableContinuationToken token= null;
             do
             {
-            TableQuerySegment<EventEntity> resultSegment = await _eventTable.ExecuteQuerySegmentedAsync(query, token);
+            TableQuerySegment<ReviewEntity> resultSegment = await _reviewTable.ExecuteQuerySegmentedAsync(query, token);
                 token = resultSegment.ContinuationToken;
 
                prog.AddRange(resultSegment.Results);
             } while(token != null);
             return prog;
-        }
-
-        public async Task DeleteEvent (string pKey, string rKey){
-            
-           var entity = new DynamicTableEntity(pKey, rKey) {ETag = "*"};
-            await _eventTable.ExecuteAsync(TableOperation.Delete(entity)); 
         }
 
     }}

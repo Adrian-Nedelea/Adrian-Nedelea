@@ -6,7 +6,7 @@ const Avatar = props => {
     return (
         <div style={props.style}>
         <div className="AvatarHello" 
-        style={{opacity : hovered ? "1": "0"}} >Hei it s me Mario
+        style={{opacity : hovered ? "1": "0"}} >Lasă un review
         </div>
 
         <Button className="ChatWithMeButton" 

@@ -27,6 +27,7 @@ namespace Licenta
             services.AddScoped<IEventRepos, EventRepositories>();
             services.AddScoped<IDocRepos, DocRepositories>();
             services.AddScoped<IRezultatRepos, RezultatRepositories>();
+            services.AddScoped<IReviewRepos, ReviewRepositories>();
             services.AddControllersWithViews();
             services.AddSignalR();
 

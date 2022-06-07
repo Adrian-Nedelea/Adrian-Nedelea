@@ -25,7 +25,7 @@ class SimpleMap extends Component {
         display:'inline-bloc',
         borderRadius:'50px',
         position:'absolute',
-        marginTop:'30rem',
+        marginTop:'5rem',
         marginLeft:'auto',
         maxWidth: "95%",
         height: "95%",

@@ -51,7 +51,7 @@ export default function Programari () {
 
     function ValidatePhone(){
       const ValPhone= RegExp(/(^(\+4|)?(07[0-8]{1}[0-9]{1}|02[0-9]{2}|03[0-9]{2}){1}?(\s|\.|\-)?([0-9]{3}(\s|\.|\-|)){2}$)/);
-      return ValPhone.test(eventNumber);
+      return ValPhone.test(eventNumber) ;
     }
     
     function ValidateName(){
@@ -61,7 +61,7 @@ export default function Programari () {
    
 
     function Valid(){
-      return ValidatePhone() && eventDate>0 && eventName>7;
+      return  ValidateName() && ValidatePhone()  && eventDate>0;
     }
  
    
@@ -125,7 +125,7 @@ export default function Programari () {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleSubmit} >
+            <Button variant="primary" onClick={handleSubmit}  disabled={!Valid()}>
              Adauga
             </Button>
           </Modal.Footer>
