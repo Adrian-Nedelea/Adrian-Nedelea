@@ -74,7 +74,7 @@ export default function Footer() {
             </Form.Group>
 
             <Form.Group className= "Form1-Group "  controlId="Email">
-              <Form.Label className="SubTitle" >Adresa noastră de email</Form.Label>
+              <Form.Label className="SubTitle" >Adresa dumneavoastră de email</Form.Label>
               <Form.Control className= "Form1-Control "  type="email" placeholder="Adresa de email" name="Email" 
               value={Email}
               onChange={(e)=>setEmail(e.target.value)}/>

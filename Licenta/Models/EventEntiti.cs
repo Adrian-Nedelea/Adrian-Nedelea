@@ -9,5 +9,6 @@ namespace Models{
 
         public EventEntity(){}
         public string Number {get;set;}
+         public bool Confirmed { get; set; }
     }
 }

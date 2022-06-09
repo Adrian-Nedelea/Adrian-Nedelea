@@ -9,4 +9,6 @@ public interface IEventRepos
     Task<List<EventEntity>> GetAllEvent();
 
     Task DeleteEvent(string pKey, string rKey);   
+
+    Task ConfirmEvent(string eventName, string eventDate);
 }

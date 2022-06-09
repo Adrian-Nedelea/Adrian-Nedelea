@@ -22,8 +22,9 @@ export default function TablePgr(){
   <>
    
     <div className='Input'>
-      <span className='Span'>Cauta ziua dorita pentru a vedea ce ore sunt libere</span>
-      <input className='InputSearch' type="text" placeholder='Cauta' onChange={(e)=> setQuery(e.target.value)} />
+      <span className='Titlu-Ind-Prog'>Caută ziua dorită pentru a vedea ce ore sunt libere<br/>Pentru o căutare eficientă urmați formatul <br/>
+      an-luna-zi | luna-zi </span>
+      <input className='InputSearch' type="number" placeholder='Scrie data dorită' onChange={(e)=> setQuery(e.target.value)} />
       </div>
     <Table striped bordered hover className='Tabel'>
   <thead>
@@ -36,7 +37,7 @@ export default function TablePgr(){
   <tbody>
      
       {data.filter(data => data.rowKey.toLowerCase().includes(query)).map((data) => (
-          <tr>
+          <tr key={data.partitionKey}>
         <td >{data.partitionKey} </td>
        <td>{data.rowKey}</td>
        </tr>

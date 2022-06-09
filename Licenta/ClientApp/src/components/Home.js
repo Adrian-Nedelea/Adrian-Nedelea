@@ -33,7 +33,8 @@ export default function Home() {
     <Navbar/>
     <Slider/>
         <div className='Home-Title'>
-            <p className='Titlu-Fain'> Clinica NedLife </p>
+            <p className='Titlu-Fain'>Bine ați venit la <br/> <strong> <u>Clinica Ned.</u></strong> </p>
+
 
               <SimpleMap />
             
@@ -59,15 +60,15 @@ export default function Home() {
           <li className='SubTitle2-li'>Cum creez o programare?</li>
             <p className='Text-Li' >Intrați în secțiunea programări ce se gasește in partea de sus si urmați instrucțiunile.</p>
           <li className='SubTitle2-li' >Cum pot contacta clinica ?</li>
-            <p className='Text-Li'>Informațiile de contact se gasesc în partea de jos si puteți trimite un mail rapid apăsând pe imaginea cu plic din sectiunea contact . </p>
+            <p className='Text-Li'>Informațiile de contact se găsesc în partea de jos unde puteți trimite un mail rapid apăsând pe imaginea cu plic din secțiunea contact . </p>
         </ol>
       </div>
 
       <div className='ReviewContainer'>
-        <p className='SubTitle'>Lasa un review <Review/> </p>
+        <p className='SubTitle' >Lăsați o recenzie <br/> <Review/> </p>
         
       </div>
-      <TableReview/>
+      <TableReview />
   
     <Footer style={{flexSrink:'0'}}/>
     </div>

@@ -46,8 +46,8 @@ const Review = () => {
     return (
     
           <>
-            <Button variant="primary" onClick={handleShow}>
-              Ceva
+            <Button  className='button' style={{height:'55px'}} onClick={handleShow}>
+             Intră aici pentru a lăsa o recenzie
             </Button>
       
             <Modal show={show} onHide={handleClose}>

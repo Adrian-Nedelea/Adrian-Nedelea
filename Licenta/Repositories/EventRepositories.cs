@@ -66,4 +66,34 @@ namespace Repositories
             await _eventTable.ExecuteAsync(TableOperation.Delete(entity)); 
         }
 
-    }}
+          public async Task ConfirmEvent(string eventName, string eventDate)
+        {
+            var prog = new EventEntity();
+            TableQuery<EventEntity> query = new TableQuery<EventEntity>();
+
+            TableContinuationToken token = null;
+            do
+            {
+            TableQuerySegment<EventEntity> resultSegment = await _eventTable.ExecuteQuerySegmentedAsync(query, token);
+            token = resultSegment.ContinuationToken;
+
+            foreach (EventEntity entity in resultSegment.Results)
+            {
+                if(entity.PartitionKey == eventName)
+                  if(entity.RowKey == eventDate)
+                      prog = entity; 
+            }
+            }while (token != null);
+            prog.Confirmed = true;
+            var editOperation = TableOperation.Merge(prog);
+            try{
+                await _eventTable.ExecuteAsync(editOperation);
+            }
+            catch (StorageException e)
+            {
+                Console.WriteLine("{0}", e);
+            }
+
+        }
+    }
+}

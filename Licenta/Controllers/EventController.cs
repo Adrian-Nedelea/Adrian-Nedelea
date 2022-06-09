@@ -66,6 +66,22 @@ namespace Licenta.Controllers
             }
         }
 
+          [HttpPost("confirm")]
+        public async Task<IActionResult> ConfirmEvent(Event event_test)
+        {
+             try
+            {
+                await _eventRepos.ConfirmEvent(event_test.eventName, event_test.eventDate);
+                return Ok("success");
+            }
+            catch (System.Exception e)
+            {
+                Console.WriteLine("{0}", e);
+                return BadRequest(new {message = "failure"});
+            }
+
+        }
+
        
     }
 }

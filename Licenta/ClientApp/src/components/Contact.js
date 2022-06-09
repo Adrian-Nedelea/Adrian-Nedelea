@@ -76,11 +76,11 @@ export default function Programari () {
          Creaza o Programare
         </Button>
         <div className='StripePgr'/>
-        <div className='BottomTextPgr'><ArrowUpCircle size={40}/> <br/> Intra  pentru a crea o programare</div>
+        <div className='BottomTextPgr' ><ArrowUpCircle size={40}/> <br/> Intră aici pentru a-ți crea o programare</div>
         </div>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title className='Title-Prog'>Adauga o PROGRAMARE</Modal.Title>
+            <Modal.Title className='Title-Prog'>Adaugă o PROGRAMARE</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form>
@@ -100,7 +100,7 @@ export default function Programari () {
               <Form.Control className={eventNumber.length===0 ? "Form1-Control " :ValidatePhone() ? "Form1-Control success" : "Form1-Control error"}  type="number" placeholder="Numarul de telefon" 
               value={eventNumber}
               onChange={(e)=>setEventNumber(e.target.value)}/>
-               <i className='fas fa-check-circle' ></i>
+               <i className='fas fa-check-circle' style={{right:'50px'}}></i>
               <i className="fa-solid fa-circle-xmark" style={{right:'50px'}}></i>
               <small>Incepe cu  07  si de 10 cifre</small>
             </Form.Group>

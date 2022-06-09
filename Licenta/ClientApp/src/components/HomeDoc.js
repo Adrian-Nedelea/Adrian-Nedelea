@@ -8,7 +8,7 @@ function HomeDoc() {
   return (
     <>
     <NavbarDoc/>
-    <div className='Title-Doc' >Bine Ati venit </div>
+    <div className='Title-Doc' >Bine a-ți venit </div>
     <div>
         <TablePgrDoc/>
     </div>

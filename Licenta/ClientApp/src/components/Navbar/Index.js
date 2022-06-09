@@ -23,15 +23,15 @@ const Navbar = () => {
                <NavMenu>
                <NavLink  className="link" to="/" >
              <Home size={20}/>
-              Home
+              Acasă
                </NavLink>
                    <NavLink className="link"  to="/Contact" >
                    <Info size={20}/>
-                     Programari
+                     Programări
                    </NavLink>
                    <NavLink className="link"  to="/SignForm" >
                    <UserPlus size={20}/>
-                  Inregistrare
+                  înregistrare
                    </NavLink>
                    
                    <Dropdown className='drop'>
@@ -51,13 +51,13 @@ const Navbar = () => {
 
                 <Dropdown className='nav-btn' >
                   <Dropdown.Toggle className='Drop-toggle'  >
-                    Informatii
+                    Informații
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu className='Drop-content'>
-                      <Link to="/" className='Item'>Home<span> |</span></Link>
-                      <Link to="/Contact" className='Item'>Programari<span> |</span></Link>
-                      <Link to="/SignForm" className='Item'>Inregistrare<span> |</span></Link>
+                      <Link to="/" className='Item'>Acasă<span> |</span></Link>
+                      <Link to="/Contact" className='Item'>Programări<span> |</span></Link>
+                      <Link to="/SignForm" className='Item'>Înregistrare<span> |</span></Link>
                       <Link to="/LoginForm"  className='Item'> Pacient<span> |</span></Link>
                      <Link to="/DocLog" className='Item'> Doctor<span > |</span></Link>
                       </Dropdown.Menu>

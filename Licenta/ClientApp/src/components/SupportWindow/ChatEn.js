@@ -1,14 +1,52 @@
-import React from 'react';
+import React from "react";
 
-import { ChatEngine } from 'react-chat-engine';
+const options = [
+  {
+    label: "Apple",
+    value: "apple",
+  },
+  {
+    label: "Mango",
+    value: "mango",
+  },
+  {
+    label: "Banana",
+    value: "banana",
+  },
+  {
+    label: "Pineapple",
+    value: "pineapple",
+  },
+];
 
- function ChatEn() {
-  return (
-    <ChatEngine
-      projectID={'411de974-e5d2-4a34-ac4f-7e8db9df0706'}
-      userName={'Tzacalie'}
-      userSecret={'pass1234'}
-    />
-  )
+class ChatEn extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fruit: "banana",
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    console.log("Fruit Selected!!");
+    this.setState({ fruit: e.target.value });
+  }
+
+  render() {
+    return (
+      <div id="App">
+        <div className="select-container">
+          <select value={this.state.fruit} onChange={this.handleChange}>
+            {options.map((option) => (
+              <option value={option.value}>{option.label}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+    );
+  }
 }
+
 export default ChatEn;
