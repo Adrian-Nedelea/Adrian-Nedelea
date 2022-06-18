@@ -27,6 +27,18 @@ export default function Footer() {
     });
   }
 
+  function ValidateEmail(){
+    const ValEmail= RegExp(/^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/);
+   return ValEmail.test(Email);
+  }
+  function ValidateNume(){
+    const ValNume= RegExp('(?=.*[a-z])(?=.{8,})')
+   return ValNume.test(Nume) && Nume.length !=0;
+  }
+
+  function Valid() {
+    return ValidateEmail() && ValidateNume() ;
+  }
   return (
 
   
@@ -49,10 +61,9 @@ export default function Footer() {
                 <div className='footer-col'>
                     <h2>Contact </h2>
                         <div className='social-links'>
-                            <Link to="/"><i className="fab fa-facebook-f"></i></Link>
-                            <Link to="/"><i className="fab fa-linkedin-in"></i></Link>
+                            <p style={{display:'inline'}} > <a href='https://www.facebook.com' target="_blank"><i className="fab fa-facebook-f"></i></a></p>
+                            <p style={{display:'inline'}}> <a href='https://www.linkedin.com' target="_blank"><i className="fab fa-linkedin-in"></i></a></p>
                             <Button onClick={handleShow} className="EmailBtn" ><Mail size={25} style={{marginLeft:'-5px', marginTop:'-16px'}}/></Button>
-                            <Link to="/"><i className="fa-brands fa-whatsapp"></i></Link>
                 </div>
             </div>
         </div>
@@ -66,18 +77,25 @@ export default function Footer() {
           <Modal.Body style={{width:'70%',marginLeft:'auto',marginRight:'auto'}}>
           <Form  onSubmit={SendEmail} className="Form1" >
         <div className='Form1-inner'>
-        <Form.Group className= "Form1-Group " controlId="Nume">
+        <Form.Group className={ Nume.length===0 ? "Form1-Group " :ValidateNume() ? "Form1-Group success" : "Form1-Group error"} controlId="Email" >
               <Form.Label className="SubTitle" style={{marginTop:'7px'}}>Numele și Prenumele</Form.Label>
               <Form.Control className= "Form1-Control "  type="text" placeholder="Numele și prenumele dumneavoastră " name="Nume" 
               value={Nume}
               onChange={(ep)=>setNume(ep.target.value)}/>
+                <i className='fas fa-check-circle'></i>
+              <i className="fa-solid fa-circle-xmark"></i>
+              <small>Minim 7 caractere</small>
             </Form.Group>
 
-            <Form.Group className= "Form1-Group "  controlId="Email">
-              <Form.Label className="SubTitle" >Adresa dumneavoastră de email</Form.Label>
-              <Form.Control className= "Form1-Control "  type="email" placeholder="Adresa de email" name="Email" 
+            <Form.Group className={ Email.length===0 ? "Form1-Group " :ValidateEmail() ? "Form1-Group success" : "Form1-Group error"} controlId="Email">
+              <Form.Label className='label'>Adresa Email</Form.Label>
+              <Form.Control className={Email.length===0 ? "Form1-Control " :ValidateEmail() ? "Form1-Control success" : "Form1-Control error"}  type="email" placeholder="Adresa de email" name="Email"
+              
               value={Email}
               onChange={(e)=>setEmail(e.target.value)}/>
+               <i className='fas fa-check-circle'></i>
+              <i className="fa-solid fa-circle-xmark"></i>
+              <small>Format aaaa@gmail.com</small>
             </Form.Group>
       
             <Form.Group className="Form1-Group" controlId="Message">
@@ -85,7 +103,7 @@ export default function Footer() {
               <textarea className='Form1-Control'   cols="30" rows="8" placeholder='Problema dumneavoastră
               ' name='Message' value={date}  onChange={(e)=> setDate(e.target.value)}/>
             </Form.Group>
-            <Button className='button' type="submit" >
+            <Button className='button' type="submit" disabled={!Valid()} onClick= {handleClose} >
               <Send size={20}/>
               Trimite
             </Button>

@@ -17,17 +17,17 @@ const NavbarPac = () => {
   }
   return (
     <>
-      <Nav ref={navRef}>
+      <Nav ref={navRef} style={{backgroundColor:"#5DADE2" ,backgroundImage:"none"}}>
       <strong style={{ fontSize: "1.8rem",marginTop:'7px',marginLeft:'-30px'}}>Ned.</strong>
               
                <NavMenu style={{ width:"100%" , marginLeft:'-5px'}}>
                <NavLink to="/HomeDoc" className="link" >
                      <Home size={20}/>
-                    Acasa , sunteti logat.
+                    Acasa, sunteti logat.
                </NavLink>
                    <NavLink to="/DocForm" className="link" >
                    <UserPlus size={20}/>
-                    Adauga un Doctor Nou
+                    Adaugă un Doctor Nou
                    </NavLink>
                    <NavLink to="/AfterEvent" className="link" >
                    <Mail size={20}/>
@@ -35,7 +35,7 @@ const NavbarPac = () => {
                    </NavLink>
                    <NavLink to="/RezultatDb" className="link" >
                    <Mail size={20}/>
-                      Rezultatul catre DB
+                      Rezultat către Baza de date
                    </NavLink>
                </NavMenu>
 
@@ -46,11 +46,11 @@ const NavbarPac = () => {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu className='Drop-content'>
-                      <Link to="/HomeDoc" className='Item'>Acasa , sunteti autetificat</Link>
+                      <Link to="/HomeDoc" className='Item'>Acasă, sunteți autentificat</Link>
                       
                       <Link to='/DocForm' className='Item'>Formularul pentru un medic nou</Link>
                       <Link to="/AfterEvent" className='Item'> Email pentru Rezultate</Link>
-                      <Link to="/RezultatDb" className='Item'> Rezultat salvat in Db</Link>
+                      <Link to="/RezultatDb" className='Item'>Rezultat către la baza de date</Link>
                       </Dropdown.Menu>
                   </Dropdown>       
 

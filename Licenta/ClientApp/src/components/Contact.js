@@ -8,6 +8,7 @@ import setMinutes from "date-fns/setMinutes";
 import 'react-datepicker/dist/react-datepicker.css'
 import TablePgr from './TablePgr';
 import axios from 'axios'
+import ro from 'date-fns/locale/ro'
 import './Form.css'
 
 async function AddEvent (credentials)
@@ -70,10 +71,10 @@ export default function Programari () {
         <Navbar/>
         <div className='ProgContainer'>
         
-        <div className='TopTextPgr'>  Bine ai venit <br/></div>
+        <div className='TopTextPgr'>  Bine ai venit! <br/></div>
       
         <Button className='ButonProg' onClick={handleShow} >
-         Creaza o Programare
+         Crează o programare
         </Button>
         <div className='StripePgr'/>
         <div className='BottomTextPgr' ><ArrowUpCircle size={40}/> <br/> Intră aici pentru a-ți crea o programare</div>
@@ -85,7 +86,7 @@ export default function Programari () {
           <Modal.Body>
             <Form>
             <Form.Group className={ eventName.length===0 ? "Form1-Group" : ValidateName() ? "Form1-Group success" : "Form1-Group error"} controlId="FullName">
-              <Form.Label className='SubTitle' style={{marginLeft:'8.5rem'}}>Numele si prenumele</Form.Label>
+              <Form.Label className='SubTitle' style={{marginLeft:'8.5rem'}}>Numele și prenumele</Form.Label>
               <Form.Control className={ eventName.length===0 ? "Form1-Control " : ValidateName() ? "Form1-Control success" : "Form1-Control error" }  type="text" placeholder="Nume si prenume " 
               value={eventName}
               onChange={(e)=>setEventName(e.target.value)}  />   
@@ -96,7 +97,7 @@ export default function Programari () {
             </Form.Group>
 
             <Form.Group className={ eventNumber.length===0 ? "Form1-Group " :ValidatePhone() ? "Form1-Group success" : "Form1-Group error"} controlId="Phone">
-              <Form.Label className="SubTitle" style={{marginLeft:'8.5rem'}}>Numar Telefon</Form.Label>
+              <Form.Label className="SubTitle" style={{marginLeft:'8.5rem'}}>Număr Telefon</Form.Label>
               <Form.Control className={eventNumber.length===0 ? "Form1-Control " :ValidatePhone() ? "Form1-Control success" : "Form1-Control error"}  type="number" placeholder="Numarul de telefon" 
               value={eventNumber}
               onChange={(e)=>setEventNumber(e.target.value)}/>
@@ -106,14 +107,23 @@ export default function Programari () {
             </Form.Group>
 
                 <Form.Group controlId='eventDate'>
-                <Form.Label className="SubTitle"  style={{marginLeft:'10rem'}}>Ora si ziua</Form.Label>
+                <Form.Label className="SubTitle"  style={{marginLeft:'10rem'}}>Ora și ziua</Form.Label>
                 <DatePicker   
                   className='DatePick'
                     selected={eventDate}
                     onChange={(e) => setEventDate(e)}
+                    locale="ro"
                     showTimeSelect
-                    minTime={setHours(setMinutes(new Date(), 0), 12)}
-                    maxTime={setHours(setMinutes(new Date(), 30), 17)}
+                    includeTimes={[
+                      setHours(setMinutes(new Date(), 0), 9),
+                      setHours(setMinutes(new Date(), 30), 9),
+                      setHours(setMinutes(new Date(), 0), 10),
+                      setHours(setMinutes(new Date(), 30), 10),
+                      setHours(setMinutes(new Date(), 0), 11),
+                      setHours(setMinutes(new Date(), 30), 11),
+                      setHours(setMinutes(new Date(), 0), 12),
+                      setHours(setMinutes(new Date(), 30), 12),
+                    ]}
                     dateFormat= "dd-MM-yyyy h:mm aa " 
                   />
                      </Form.Group>
@@ -125,7 +135,7 @@ export default function Programari () {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleSubmit}  disabled={!Valid()}>
+            <Button variant="primary" onClick={handleSubmit }  disabled={!Valid()}>
              Adauga
             </Button>
           </Modal.Footer>

@@ -4,9 +4,9 @@ namespace Models{
     public class RezultatEntity: TableEntity{
         public RezultatEntity(string Nume ,string Data){
             
-            this.PartitionKey=Nume;
+        this.PartitionKey=Nume;
 
-            this.RowKey=Data;
+        this.RowKey=Data;
         }
 
         public RezultatEntity(){}

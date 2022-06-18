@@ -4,9 +4,9 @@ namespace Models{
     public class ReviewEntity: TableEntity{
         public ReviewEntity(string nume ,string rating){
 
-            this.PartitionKey=nume;
+        this.PartitionKey=nume;
 
-            this.RowKey=rating;
+        this.RowKey=rating;
         }
 
         public ReviewEntity(){}

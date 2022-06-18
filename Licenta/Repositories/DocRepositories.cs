@@ -10,22 +10,23 @@ using Models;
 
 namespace Repositories
 {
-
     public class DocRepositories : IDocRepos
     {
-
         private string _connectionString;
-
         private CloudTableClient _tableClient;
-
         private CloudTable _docTable;
-
-
         public DocRepositories(IConfiguration configuration)
         {
             _connectionString = "DefaultEndpointsProtocol=https;AccountName=licentaceva;AccountKey=0HrYuEIpQ/EMeOzRUq++hBKGBX7PL2fKiUa4aC9RK3q+SQhKnkDG4+CPe6vNEZLjlD9b9a8AfGjH+AStVDuQsg==;EndpointSuffix=core.windows.net";
 
             Task.Run(async () => { await InitializeTable(); }).GetAwaiter().GetResult();
+        }
+        public async Task InitializeTable()
+        {
+            var account = CloudStorageAccount.Parse(_connectionString);
+            _tableClient = account.CreateCloudTableClient();
+            _docTable = _tableClient.GetTableReference("Doctor");
+            await _docTable.CreateIfNotExistsAsync();
         }
 
         public async Task InsertNewDoc(DocEntity doc)
@@ -34,15 +35,6 @@ namespace Repositories
             await _docTable.ExecuteAsync(insertOption);
         }
 
-        public async Task InitializeTable()
-        {
-            var account = CloudStorageAccount.Parse(_connectionString);
-            _tableClient = account.CreateCloudTableClient();
-
-            _docTable = _tableClient.GetTableReference("Doctor");
-
-            await _docTable.CreateIfNotExistsAsync();
-        }
 
         public async Task<string> GetDocPass(string Username)
         {

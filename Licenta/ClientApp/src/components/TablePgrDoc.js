@@ -16,12 +16,10 @@ export default function TablePgr(){
  const [getEvent, setGetEvent]=useState([]);
  const [query, setQuery]=useState("");
  const [prog,setProg]=useState("");
- const [selected, setSelected] = useState(null);
 const [Data, setData]=useState("");
 const [Nume, setNume]=useState("");
 const [Telefon,setTelefon]=useState("");
 const [show, setShow] = useState(false);
-const [Conf, setConf]=useState (false);
 
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
@@ -76,6 +74,7 @@ console.log(Data, Nume ,Telefon);
     
       </div>
       <p className='SubTitle '>Tabelul cu programari<br/><ArrowDownCircle size={35} style={{color:'#2FB7D7'}} /></p>
+      <p className='SubTitle'>Apasă de două ori pe una din informații pentru a intra în meniul de ștergere</p>
       
   <Table striped bordered hover className='Tabel'>
     <thead>
@@ -108,22 +107,22 @@ console.log(Data, Nume ,Telefon);
   <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Programare {Nume} </Modal.Title>
+          <Modal.Title className='TitluProg'>Programare {Nume} </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Nume : {Nume}</p>
-          <p>Data : {Data}</p>
-          <p>Telefon : {Telefon}</p>
+          <p className='TextDateProg'>Nume : {Nume}</p>
+          <p className='TextDateProg'>Data : {Data}</p>
+          <p className='TextDateProg'>Telefon : {Telefon}</p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Ieșire
           </Button>
           <Button variant="primary" onClick={deleteEvent }>
             <Trash size={25}/>Șterge 
           </Button>
-          <Button variant="primary" onClick={confirmEvent }>
-           Confirm
+          <Button hidden variant="primary" onClick={confirmEvent }>
+           Confirmă programarea
           </Button>
         </Modal.Footer>
       </Modal>

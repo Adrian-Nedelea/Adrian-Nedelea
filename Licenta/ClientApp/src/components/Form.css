@@ -710,3 +710,18 @@ tr:nth-child(odd) {background-color: #f2f2f2;}
     line-height: 45px;
     text-align: center; 
 }
+
+.TextDateProg{
+    text-align: left;
+    margin-left: 25px;
+    font-size: 22px;
+}
+
+.TitluProg{
+    color: #666;
+    font-size: 25px;
+    font-weight: 400; 
+    line-height: 45px;
+    text-align: center; 
+    margin-left: 75px;
+}

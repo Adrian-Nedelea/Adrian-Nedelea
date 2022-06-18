@@ -30,7 +30,7 @@ export default function TablePgr(){
   <thead>
     <tr>
       <th>Numele</th>
-      <th>Ziua si ora</th>
+      <th>Ziua și ora</th>
     
     </tr>
   </thead>

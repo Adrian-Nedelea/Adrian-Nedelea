@@ -41,7 +41,9 @@ const Review = () => {
       }
     }
 
-   
+   function Valid (){
+     return nume.length>6 && rating>=1;
+   }
 
     return (
     
@@ -52,18 +54,18 @@ const Review = () => {
       
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
-                <Modal.Title className='Title-Rev'>Lasă un review</Modal.Title>
+                <Modal.Title className='Title-Rev'>Lăsați o recenzie</Modal.Title>
               </Modal.Header>
               <Modal.Body><Form>
               <Form.Group className= "Form1-Group " controlId="Phone">
-              <Form.Label className="SubTitle" style={{marginLeft:'8.5rem'}}>Numele si prenumele </Form.Label>
+              <Form.Label className="SubTitle" style={{marginLeft:'8.5rem'}}>Numele și prenumele </Form.Label>
               <Form.Control className= "Form1-Control " type= "text" placeholder="Numele Dumnevoastra" 
                   value={nume}
                   onChange={(e)=>setNume(e.target.value)}
               /> 
             </Form.Group>
             <Form.Group className="Form1-Group"  controlId="FullName">
-            <Form.Label className="SubTitle" style={{marginLeft:'10rem'}}> Apasa pe stea</Form.Label>
+            <Form.Label className="SubTitle" style={{marginLeft:'10rem'}}> Apasă pe stea</Form.Label>
              <div className='Stars'>
              {[...Array(5)].map((star,i) => {
                const ratingValue= i+1;
@@ -82,12 +84,12 @@ const Review = () => {
                      </label>
                 )
              })}
-             <p className='TitleRev' style={{marginBottom:"-13px"}}> The rating is {rating} </p> 
+             <p className='TitleRev' style={{marginBottom:"-13px"}}> Ne oferi {rating} stele ? </p> 
             </div>    
       
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-               <Form.Label className="SubTitle" style={{marginLeft:'6.9rem'}}>Ai dori sa ne mai spui ceva ?</Form.Label>
+               <Form.Label className="SubTitle" style={{marginLeft:'6.9rem'}}>Ai dori să ne mai spui ceva ?</Form.Label>
                <Form.Control as='textarea'  col={3} rows={5} value={text} onChange={(e)=> setText(e.target.value)} />
              </Form.Group>
 
@@ -97,7 +99,7 @@ const Review = () => {
                 <Button variant="secondary" onClick={handleClose}>
                   Close
                 </Button>
-                <Button variant="primary" onClick={handleSubmit}>
+                <Button variant="primary" onClick={handleSubmit} disabled={!Valid()}>
                   Salvează
                 </Button>
               </Modal.Footer>

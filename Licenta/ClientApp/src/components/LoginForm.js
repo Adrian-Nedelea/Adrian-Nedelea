@@ -52,8 +52,8 @@ export default function LoginForm(props) {
         <div className='Form1-inner'>
         <div className='Title'>Autentificare</div>
             <Form.Group className="Form1-Group" controlId="Username">
-              <Form.Label className='label'>Username</Form.Label>
-              <Form.Control className='Form1-Control'  type="text" placeholder="Enter Username"
+              <Form.Label className='label'>Numele de utilizator</Form.Label>
+              <Form.Control className='Form1-Control'  type="text" placeholder="numele de utilizator"
                 value={Username}
                 onChange={(e)=>setUsername(e.target.value)} /> 
             </Form.Group>

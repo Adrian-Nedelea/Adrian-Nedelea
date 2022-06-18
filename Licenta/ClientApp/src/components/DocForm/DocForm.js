@@ -121,8 +121,8 @@ export default function DocForm() {
             
 
             <Form.Group className={ UsernameDoc.length===0 ? "Form1-Group " :ValidateUsernameDoc() ? "Form1-Group success" : "Form1-Group error"} controlId="Username">
-              <Form.Label className='SubTitle'>Username</Form.Label>
-              <Form.Control className={UsernameDoc.length===0 ? "Form1-Control " :ValidateUsernameDoc() ? "Form1-Control success" : "Form1-Control error"}  type="text" placeholder="Enter Username"
+              <Form.Label className='SubTitle'>Numele de utilizator</Form.Label>
+              <Form.Control className={UsernameDoc.length===0 ? "Form1-Control " :ValidateUsernameDoc() ? "Form1-Control success" : "Form1-Control error"}  type="text" placeholder="Numele de utilizator"
           
               value={UsernameDoc}
               onChange={(e)=>setUsernameDoc(e.target.value)} />

@@ -45,7 +45,7 @@ export default function SignForm() {
   }
 
   function ValidateEmail(){
-    const ValEmail= RegExp(/^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/);
+    const ValEmail= RegExp(/^[a-zA-Z0-9]+@+gmail+.+[A-z]/);
    return ValEmail.test(Email);
   }
 
@@ -119,7 +119,7 @@ export default function SignForm() {
         <div className='Title'>Creaza Contul</div>
       
             <Form.Group className={ FullName.length===0 ? "Form1-Group" : ValidateFullname() ? "Form1-Group success" : "Form1-Group error"} controlId="FullName">
-              <Form.Label className='label'>Numele si prenumele</Form.Label>
+              <Form.Label className='label'>Numele și prenumele</Form.Label>
               <Form.Control className={ FullName.length===0 ? "Form1-Control " : ValidateFullname() ? "Form1-Control success" : "Form1-Control error" }  type="text" placeholder="Nume si prenume " 
               value={FullName}
               onChange={(e)=>setFullName(e.target.value)}  />   
@@ -131,8 +131,8 @@ export default function SignForm() {
             
 
             <Form.Group className={ Username.length===0 ? "Form1-Group " :ValidateUsername() ? "Form1-Group success" : "Form1-Group error"} controlId="Username">
-              <Form.Label className='label'>Username</Form.Label>
-              <Form.Control className={Username.length===0 ? "Form1-Control " :ValidateUsername() ? "Form1-Control success" : "Form1-Control error"}  type="text" placeholder="Enter Username"
+              <Form.Label className='label'>Numele de utilizator</Form.Label>
+              <Form.Control className={Username.length===0 ? "Form1-Control " :ValidateUsername() ? "Form1-Control success" : "Form1-Control error"}  type="text" placeholder="Numele de utilizator"
           
               value={Username}
               onChange={(e)=>setUsername(e.target.value)} />
@@ -142,7 +142,7 @@ export default function SignForm() {
             </Form.Group>
  
             <Form.Group className={ city.length===0 ? "Form1-Group " :ValidateCity() ? "Form1-Group success" : "Form1-Group error"} controlId="city">
-              <Form.Label className='label'>Oras</Form.Label>
+              <Form.Label className='label'>Oraș</Form.Label>
               <Form.Control className={city.length===0 ? "Form1-Control ": ValidateCity() ? "Form1-Control success" : "Form1-Control error"}  type="text" placeholder="Orasul Dumnevoastra" 
               
               value={city}
@@ -153,7 +153,7 @@ export default function SignForm() {
             </Form.Group>
 
             <Form.Group className={ Email.length===0 ? "Form1-Group " :ValidateEmail() ? "Form1-Group success" : "Form1-Group error"} controlId="Email">
-              <Form.Label className='label'>Adresa Email</Form.Label>
+              <Form.Label className='label'>Adresă Email</Form.Label>
               <Form.Control className={Email.length===0 ? "Form1-Control " :ValidateEmail() ? "Form1-Control success" : "Form1-Control error"}  type="email" placeholder="Adresa de email"
               
               value={Email}
